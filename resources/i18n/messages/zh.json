@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "title": "Horizonte Studio | 官方作品集",
+    "description": "Horizonte Studio 数字作品集 — Lucas Cyrne Ferreira：全栈开发、界面与数字产品。"
+  },
+  "common": {
+    "navHome": "首页",
+    "navProjects": "项目",
+    "navContact": "联系",
+    "language": "语言",
+    "logoAria": "前往 Horizonte Studio 首页"
+  },
+  "contact": {
+    "introEyebrow": "联系",
+    "introTitle": "聊聊你的下一个产品",
+    "introBody": "我是中级全栈开发者，注重可靠软件、用心界面与可扩展架构。我参与数字项目——自由职业、精干小队或阶段性交付——沟通直接、持续产出。",
+    "introRevealLine": "携手同行，让你的想法超越地平线。",
+    "areasHeading": "专注领域",
+    "recommendationsEyebrow": "推荐",
+    "faqHeading": "常见问题",
+    "ctaTitle": "准备好下一步了吗？",
+    "ctaSubtitle": "任选渠道。我通常在 2 个工作日内回复。",
+    "ctaEmail": "发邮件",
+    "ctaEmailHint": "cyrnedev@gmail.com",
+    "ctaLinkedIn": "领英",
+    "ctaLinkedInHint": "留言或添加好友",
+    "ctaReadcv": "简历 (PDF)",
+    "ctaReadcvHint": "最新版本",
+    "ctaGithub": "GitHub",
+    "ctaGithubHint": "代码与项目",
+    "footerBlurb": "Horizonte Studio 作品集 — 技术、叙事与实验，服务数字产品。",
+    "footerRights": "© Horizonte Studio. 保留所有权利。"
+  },
+  "contactAreas": [
+    {
+      "title": "SaaS 与数字产品",
+      "desc": "Web/移动端体验、设计系统、性能与无障碍。Next.js、React 与 API 集成，支持持续迭代的产品。",
+      "image": "/assets/images/front-end.webp"
+    },
+    {
+      "title": "金融科技与区块链",
+      "desc": "支付、合规、敏感集成及必要的加密层。强调弹性 API、安全与清晰的领域模型。",
+      "image": "/assets/images/architecture.webp"
+    },
+    {
+      "title": "医疗、ERP 与运营",
+      "desc": "内部系统、关键流程与一致性数据。后端以 .NET、NestJS、Postgres 与可观测性为主。",
+      "image": "/assets/images/database.webp"
+    },
+    {
+      "title": "游戏与互动体验",
+      "desc": "原型、叙事、游戏化，与美术/音频协作的创意交付——从实验到可玩产品。",
+      "image": "/assets/images/design.webp"
+    }
+  ],
+  "contactFaq": [
+    {
+      "question": "你使用哪些语言工作？",
+      "answer": "葡萄牙语与英语。文档、会议与代码均可；分布式团队没有问题。"
+    },
+    {
+      "question": "时区与可用时间？",
+      "answer": "巴西（巴西利亚时间），可与美欧在约定窗口重叠。我通常固定每周同步时段。"
+    },
+    {
+      "question": "合同与付款方式？",
+      "answer": "常见为按项目/迭代的自由职业或公司（PJ）；更大范围可谈 retainer 或分阶段里程碑。按里程碑或月结。"
+    },
+    {
+      "question": "主要技术栈？",
+      "answer": "前端 React、Next.js、TypeScript；后端 Node (NestJS)、.NET、按需 Java/Spring；数据 PostgreSQL/MongoDB；基础设施 Docker、AWS/GCP、GitHub Actions CI。"
+    },
+    {
+      "question": "如何估算工期与范围？",
+      "answer": "从简要范围或短 discovery 开始，拆成可测试的增量，并尽早沟通风险。截止日期含合理缓冲。"
+    },
+    {
+      "question": "如何开始沟通？",
+      "answer": "一封邮件或领英私信，附上产品背景、技术栈与时间即可。合适的话先约 30 分钟对齐，再谈正式方案。"
+    }
+  ],
+  "contactRecommendations": [
+    {
+      "name": "Ailson da Cruz",
+      "role": "Software Engineer",
+      "company": "iFood",
+      "text": "\"Lucas 具有创新视角，善于连接不同想法，并始终保持高质量交付。他的投入度非常突出。\""
+    },
+    {
+      "name": "Lucas Zacarias de S Duarte",
+      "role": "Software Engineer",
+      "company": "Myte Design",
+      "text": "\"Lucas 是一位能力很强的全栈开发者，也是非常合作的团队成员。适应快，贡献常常超出预期。\"",
+      "link": "https://www.linkedin.com/in/lucaszsd/"
+    },
+    {
+      "name": "Edmilson Rodrigues",
+      "role": "COO",
+      "company": "Lovepay",
+      "text": "\"我很荣幸与 Lucas Cyrne 共事。他敬业、技术扎实且值得信赖，任何技术团队都会因此受益。\"",
+      "link": "https://www.linkedin.com/in/edmilsonrodrigues/"
+    },
+    {
+      "name": "Jhone Marra",
+      "role": "Game Programmer",
+      "company": "Orbit Studio",
+      "text": "\"Lucas 总能带来优秀想法，沟通清晰，交付质量很高，是非常完整的专业人士。\"",
+      "link": "https://www.linkedin.com/in/jhonemarra/"
+    }
+  ],
+  "landing": {
+    "heroEyebrow": "软件开发者 & 设计师",
+    "heroReach": "抵达新的",
+    "heroHorizons": "地平线",
+    "ctaWork": "部分作品",
+    "secretButton": "关于我",
+    "quoteIn": "选自",
+    "quotes": [
+      {
+        "text": "我只在乎那些疯狂的人：疯狂地生活、疯狂地表达、疯狂地渴望被拯救；他们同时想要一切，从不打哈欠，从不说无聊的话，而是燃烧、燃烧，像绚烂的焰火划过天空。",
+        "author": "杰克·凯鲁亚克",
+        "work": "在路上"
+      },
+      {
+        "text": "至今一切社会的历史都是阶级斗争的历史。",
+        "author": "卡尔·马克思",
+        "work": "共产党宣言"
+      },
+      {
+        "text": "你必须活在当下，纵身每一道浪，在每一刻找到你的永恒。",
+        "author": "亨利·戴维·梭罗",
+        "work": "瓦尔登湖"
+      },
+      {
+        "text": "一个灵魂热烈的说谎者，把幻想变成故事，又把故事变成幻想。",
+        "author": "翁贝托·埃科",
+        "work": "波多里诺"
+      },
+      {
+        "text": "他变形后的存在揭示了身份与接纳之间联系的脆弱。",
+        "author": "弗兰茨·卡夫卡",
+        "work": "变形记"
+      },
+      {
+        "text": "他的心跳与受伤的大陆同频，文字却鼓舞斗争与希望。",
+        "author": "爱德华多·加莱亚诺",
+        "work": "拉丁美洲：被切开的血管"
+      },
+      {
+        "text": "我见过我这一代最好的头脑被疯狂毁灭。",
+        "author": "艾伦·金斯堡",
+        "work": "嚎叫"
+      }
+    ]
+  },
+  "audio": {
+    "loading": "正在加载音频…",
+    "clickStart": "点击开始播放",
+    "error": "音频加载失败，点击重试。",
+    "readyClick": "音频已就绪，再次点击播放。",
+    "secretPlaying": "探索隐藏模式",
+    "mainPlaying": "正在播放主音轨",
+    "paused": "已暂停",
+    "pauseAria": "暂停",
+    "playAria": "播放",
+    "headphones": "建议使用耳机以获得更好体验。"
+  },
+  "projects": {
+    "title": "项目",
+    "subtitle": "通过视频浏览各项目流程。悬停卡片可查看更多洞察。",
+    "customersTitle": "客户",
+    "customersSubtitle": "陪伴并信任这些产品成长的合作伙伴与客户。",
+    "openCase": "打开案例研究",
+    "modalClose": "关闭",
+    "modalAriaClose": "关闭对话框",
+    "modalAriaDialog": "项目详情 — {{title}}",
+    "problem": "问题",
+    "solution": "方案",
+    "impact": "影响",
+    "cases": {
+      "latsys": {
+        "title": "Latsys",
+        "domain": "商业 ERP 与物流",
+        "summary": "覆盖订单、商品、库存与物流的统一管理流程。",
+        "problem": "在降低人工错误的同时打通商流与运营。",
+        "solution": "预下单规则、运营看板与报表导出能力。",
+        "impact": "整体执行更快，管理视角更清晰。",
+        "tags": ["ERP", "销售", "物流"]
+      },
+      "maid-system": {
+        "title": "Maid System",
+        "domain": "运营管理",
+        "summary": "面向基地与单元管理的运营系统，按角色拆分流程。",
+        "problem": "需协同清洁/布草请求并跟踪多方执行状态。",
+        "solution": "为管理者、客户、执行者提供独立流程与状态追踪。",
+        "impact": "运营更有序，响应更及时。",
+        "tags": ["运营", "团队", "仪表盘"]
+      },
+      "beth-front": {
+        "title": "Beth-front",
+        "domain": "艺术画廊",
+        "summary": "未完成的概念站点，采用现代且优雅的展示语言。",
+        "problem": "在早期版本中仍需传达艺术价值与影响力。",
+        "solution": "简洁叙事、明确层级与作品导向导航。",
+        "impact": "提升艺术呈现效果与潜在转化能力。",
+        "tags": ["艺术", "画廊", "体验"]
+      },
+      "cofrin": {
+        "title": "Cofrin",
+        "domain": "个人理财",
+        "summary": "免费个人理财平台，流程直观且界面现代。",
+        "problem": "很多理财应用将关键功能放在付费层。",
+        "solution": "支持银行流水自动导入、分类与实用报表。",
+        "impact": "无需订阅也能获得高质量财务洞察。",
+        "tags": ["金融科技", "理财", "个人"]
+      },
+      "more": {
+        "title": "更多...",
+        "domain": "全栈经验",
+        "summary": "扩展展示 Web、移动端与后端的一体化交付能力。",
+        "problem": "复杂产品需要从方案到落地的全链路执行。",
+        "solution": "具备约 6 年市场经验的中级全栈开发者能力。",
+        "impact": "可稳定应对高复杂度产品挑战。",
+        "tags": ["扩展", "亮点"]
+      }
+    }
+  }
+}

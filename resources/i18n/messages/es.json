@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "title": "Horizonte Studio | Portafolio oficial",
+    "description": "Portafolio digital de Horizonte Studio — Lucas Cyrne Ferreira: desarrollo full stack, interfaces y productos digitales."
+  },
+  "common": {
+    "navHome": "Inicio",
+    "navProjects": "Proyectos",
+    "navContact": "Contacto",
+    "language": "Idioma",
+    "logoAria": "Ir al inicio de Horizonte Studio"
+  },
+  "contact": {
+    "introEyebrow": "Contacto",
+    "introTitle": "Hablemos de tu próximo producto",
+    "introBody": "Trabajo como desarrollador full stack mid-level enfocado en software fiable, interfaces cuidadas y arquitectura escalable. Busco colaborar en proyectos digitales — freelance, squads ágiles o fases acotadas — con comunicación clara y entregas continuas.",
+    "introRevealLine": "Juntos, tu idea puede llegar mucho más allá del horizonte.",
+    "areasHeading": "Áreas de enfoque",
+    "recommendationsEyebrow": "Recomendaciones",
+    "faqHeading": "Preguntas frecuentes",
+    "ctaTitle": "¿Listo para el siguiente paso?",
+    "ctaSubtitle": "Elige un canal. Suelo responder en hasta 2 días hábiles.",
+    "ctaEmail": "Enviar correo",
+    "ctaEmailHint": "cyrnedev@gmail.com",
+    "ctaLinkedIn": "LinkedIn",
+    "ctaLinkedInHint": "Mensaje o conexión",
+    "ctaReadcv": "Currículum (PDF)",
+    "ctaReadcvHint": "Versión actualizada",
+    "ctaGithub": "GitHub",
+    "ctaGithubHint": "Código y proyectos",
+    "footerBlurb": "Portafolio Horizonte Studio — tecnología, narrativa y experimentación para productos digitales.",
+    "footerRights": "© Horizonte Studio. Todos los derechos reservados."
+  },
+  "contactAreas": [
+    {
+      "title": "SaaS y productos digitales",
+      "desc": "Experiencias web y móviles, design systems, rendimiento y accesibilidad. Next.js, React e integraciones API para productos en evolución.",
+      "image": "/assets/images/front-end.webp"
+    },
+    {
+      "title": "Fintech y blockchain",
+      "desc": "Pagos, cumplimiento, integraciones sensibles y capas crypto cuando aportan. APIs resilientes, seguridad y modelo de dominio claro.",
+      "image": "/assets/images/architecture.webp"
+    },
+    {
+      "title": "Salud, ERP y operaciones",
+      "desc": "Sistemas internos, flujos críticos y datos consistentes. Backend sólido con .NET, NestJS, Postgres y observabilidad.",
+      "image": "/assets/images/database.webp"
+    },
+    {
+      "title": "Juegos e interactivo",
+      "desc": "Prototipos, narrativa, gamificación y piezas creativas con arte y audio — del experimento al producto jugable.",
+      "image": "/assets/images/design.webp"
+    }
+  ],
+  "contactFaq": [
+    {
+      "question": "¿En qué idiomas trabajas?",
+      "answer": "Portugués e inglés. Documentación, reuniones y código pueden fluir en ambos; equipos distribuidos no son problema."
+    },
+    {
+      "question": "¿Zona horaria y disponibilidad?",
+      "answer": "Brasil (Brasilia), con solapamiento razonable para EE. UU. y Europa en ventanas acordadas. Suelo fijar un hueco semanal para llamadas."
+    },
+    {
+      "question": "¿Contratos y pagos?",
+      "answer": "Freelance o empresa (PJ) por proyecto/sprint es lo habitual; en alcances mayores hablamos de retainer o fases con hitos. Cobro por hito o mensual."
+    },
+    {
+      "question": "¿Stack principal?",
+      "answer": "Frontend: React, Next.js, TypeScript. Backend: Node (NestJS), .NET, Java/Spring según contexto. Datos: PostgreSQL/MongoDB. Infra: Docker, AWS/GCP, CI con GitHub Actions."
+    },
+    {
+      "question": "¿Cómo estimas plazos y alcance?",
+      "answer": "Parto de un alcance breve o discovery corto, divido en entregas testeables y comunico riesgos pronto. Los plazos llevan margen realista."
+    },
+    {
+      "question": "¿Cómo empezamos?",
+      "answer": "Un correo o mensaje en LinkedIn con contexto del producto, stack y timing basta. Si encaja, agendamos 30 minutos antes de una propuesta cerrada."
+    }
+  ],
+  "contactRecommendations": [
+    {
+      "name": "Ailson da Cruz",
+      "role": "Software Engineer",
+      "company": "iFood",
+      "text": "\"Lucas tiene una visión innovadora, conecta ideas con naturalidad y mantiene un estándar alto de calidad. Su dedicación destaca.\""
+    },
+    {
+      "name": "Lucas Zacarias de S Duarte",
+      "role": "Software Engineer",
+      "company": "Myte Design",
+      "text": "\"Lucas es un desarrollador full stack muy competente y un gran compañero de equipo. Se adapta rápido y aporta más de lo esperado.\"",
+      "link": "https://www.linkedin.com/in/lucaszsd/"
+    },
+    {
+      "name": "Edmilson Rodrigues",
+      "role": "COO",
+      "company": "Lovepay",
+      "text": "\"Tuve el placer de trabajar con Lucas Cyrne. Es un profesional dedicado, sólido técnicamente y confiable. Cualquier equipo gana con él.\"",
+      "link": "https://www.linkedin.com/in/edmilsonrodrigues/"
+    },
+    {
+      "name": "Jhone Marra",
+      "role": "Game Programmer",
+      "company": "Orbit Studio",
+      "text": "\"Lucas siempre trae ideas excelentes, se comunica con claridad y entrega con mucha calidad. Un profesional completo.\"",
+      "link": "https://www.linkedin.com/in/jhonemarra/"
+    }
+  ],
+  "landing": {
+    "heroEyebrow": "DESARROLLADOR DE SOFTWARE Y DISEÑADOR",
+    "heroReach": "Alcanza nuevos",
+    "heroHorizons": "horizontes",
+    "ctaWork": "Un poco de mi trabajo",
+    "secretButton": "Un poco sobre mí",
+    "quoteIn": "en",
+    "quotes": [
+      {
+        "text": "Las únicas personas que me interesan son las locas, las que están locas por vivir, por hablar, por salvarse; las que desean todo a la vez y nunca bostezan ni dicen algo aburrido, sino que arden y brillan como fuegos artificiales.",
+        "author": "Jack Kerouac",
+        "work": "En el camino"
+      },
+      {
+        "text": "La historia de todas las sociedades hasta hoy es la historia de la lucha de clases.",
+        "author": "Karl Marx",
+        "work": "Manifiesto Comunista"
+      },
+      {
+        "text": "Debes vivir en el presente, lanzarte en cada ola, hallar tu eternidad en cada instante.",
+        "author": "Henry David Thoreau",
+        "work": "Walden"
+      },
+      {
+        "text": "Un mentiroso de alma vibrante que convierte la fantasía en historia y la historia en fantasía.",
+        "author": "Umberto Eco",
+        "work": "Baudolino"
+      },
+      {
+        "text": "Su existencia deformada revela la fragilidad del vínculo entre identidad y aceptación.",
+        "author": "Franz Kafka",
+        "work": "La metamorfosis"
+      },
+      {
+        "text": "Su corazón late al ritmo de continentes heridos, pero sus palabras inspiran lucha y esperanza.",
+        "author": "Eduardo Galeano",
+        "work": "Las venas abiertas de América Latina"
+      },
+      {
+        "text": "Vi las mejores mentes de mi generación destruidas por la locura, hambrientas histéricas desnudas.",
+        "author": "Allen Ginsberg",
+        "work": "Aullido"
+      }
+    ]
+  },
+  "audio": {
+    "loading": "Cargando audio...",
+    "clickStart": "Clic para iniciar la pista",
+    "error": "Error al cargar el audio. Clic para reintentar.",
+    "readyClick": "Audio listo. Clic de nuevo para escuchar.",
+    "secretPlaying": "Explorando el modo secreto",
+    "mainPlaying": "Reproduciendo pista principal",
+    "paused": "Pista en pausa",
+    "pauseAria": "Pausar pista",
+    "playAria": "Reproducir pista",
+    "headphones": "Usa auriculares para una mejor experiencia."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Recorre cada proyecto en vídeo. Pasa el cursor por las tarjetas para revelar más insights.",
+    "customersTitle": "Clientes",
+    "customersSubtitle": "Socios y clientes que acompañaron (y confiaron) el crecimiento de los productos.",
+    "openCase": "Abrir caso de estudio",
+    "modalClose": "Cerrar",
+    "modalAriaClose": "Cerrar ventana",
+    "modalAriaDialog": "Detalles del proyecto {{title}}",
+    "problem": "Problema",
+    "solution": "Solución",
+    "impact": "Impacto",
+    "cases": {
+      "latsys": {
+        "title": "Latsys",
+        "domain": "ERP comercial y logística",
+        "summary": "Gestión integral de pedidos, catálogo, stock y operación en un solo flujo.",
+        "problem": "Unificar rutinas comerciales y logísticas reduciendo errores manuales.",
+        "solution": "Reglas de pre-pedido, paneles operativos y exportación de informes.",
+        "impact": "Más control y ejecución más rápida en toda la operación.",
+        "tags": ["ERP", "Comercial", "Logística"]
+      },
+      "maid-system": {
+        "title": "Maid System",
+        "domain": "Gestión operativa",
+        "summary": "Sistema para bases, unidades y rutinas con flujos por tipo de usuario.",
+        "problem": "Coordinar solicitudes de limpieza/lavandería entre múltiples actores.",
+        "solution": "Flujos distintos para gestor, cliente y trabajador(a), con estado por unidad.",
+        "impact": "Operación más organizada y respuestas más ágiles.",
+        "tags": ["Operaciones", "Equipos", "Dashboards"]
+      },
+      "beth-front": {
+        "title": "Beth-front",
+        "domain": "Galería de arte",
+        "summary": "Sitio concepto, aún incompleto, con lenguaje visual moderno y elegante.",
+        "problem": "Transmitir impacto y valor artístico desde una versión temprana.",
+        "solution": "Narrativa limpia, jerarquía visual fuerte y navegación orientada a obra.",
+        "impact": "Mayor potencial de impacto y venta del trabajo artístico.",
+        "tags": ["Arte", "Galería", "Experiencia"]
+      },
+      "cofrin": {
+        "title": "Cofrin",
+        "domain": "Finanzas personales",
+        "summary": "Plataforma gratuita de finanzas personales con flujos modernos e intuitivos.",
+        "problem": "Muchas apps bloquean funciones clave detrás de pago.",
+        "solution": "Autoimport de extracto bancario, categorización e informes útiles.",
+        "impact": "Mejor gestión financiera sin costo de suscripción.",
+        "tags": ["Fintech", "Finanzas", "Personal"]
+      },
+      "more": {
+        "title": "Más...",
+        "domain": "Experiencia full stack",
+        "summary": "Panorama ampliado de entregas web, mobile y backend en productos reales.",
+        "problem": "Los desafíos complejos exigen ejecución sólida de punta a punta.",
+        "solution": "Perfil full stack mid-level con cerca de 6 años de mercado.",
+        "impact": "Preparado para retos de producto con ritmo, calidad y visión.",
+        "tags": ["Extra", "Destacados"]
+      }
+    }
+  }
+}

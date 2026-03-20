@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,13 +10,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        text: '#0C0809',
-        background: '#FDFCFC',
-        'primary-light': '#D98A97',
-        primary: '#B65466',
-        'primary-dark': '#8C3A4B',
-        secondary: '#E09EAA',
-        accent: 'rgb(244, 96, 123)',
+        // Semantic tokens using CSS variables (theme-aware)
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
+        surface: 'var(--color-surface)',
+        'surface-muted': 'var(--color-surface-muted)',
+        border: 'var(--color-border)',
+        muted: 'var(--color-muted)',
+        'muted-foreground': 'var(--color-muted-foreground)',
+        primary: 'var(--color-primary)',
+        'primary-foreground': 'var(--color-primary-foreground)',
+        secondary: 'var(--color-secondary)',
+        'secondary-foreground': 'var(--color-secondary-foreground)',
+        accent: 'var(--color-accent)',
+        'accent-foreground': 'var(--color-accent-foreground)',
+        // Horizonte palette
+        horizonte: {
+          sunTop: '#F3407E',
+          sunBottom: '#E77B79',
+          horizon: '#D8656F',
+          accent: '#F3A07E',
+          dark: '#2E2E2E',
+          light: '#F4F4F5',
+          background: '#EFEFF0',
+          text: '#2E2E2E',
+          muted: '#71717A',
+          border: '#E4E4E7',
+          success: '#22C55E',
+        },
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -33,6 +55,10 @@ const config: Config = {
       },
       backgroundImage: {
         'nebula-vignette': `radial-gradient(circle, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%), url('/assets/images/nebulosa.webp')`,
+        'landing-day':
+          'linear-gradient(180deg, #E0F2FE 0%, #BAE6FD 35%, #E0F2FE 65%, #EFF6FF 100%)',
+        'landing-sunset':
+          'linear-gradient(180deg, #0F172A 0%, #1E293B 35%, #F3407E 75%, #E77B79 100%)',
       },
       keyframes: {
         'fade-in': {

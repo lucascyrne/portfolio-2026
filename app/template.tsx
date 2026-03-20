@@ -1,6 +1,5 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -31,7 +30,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       {/* Elemento de transição */}
       <div
         id="transition-element"
-        className="fixed top-0 left-0 w-screen h-screen bg-primary z-50 animate-slide-out"
+        className="fixed top-0 left-0 w-screen h-screen bg-primary z-50 animate-slide-out pointer-events-none"
       ></div>
 
       {/* Conteúdo da página */}

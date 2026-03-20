@@ -5,6 +5,12 @@ const useCustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isCoarsePointer =
+      window.matchMedia &&
+      window.matchMedia('(pointer: coarse)').matches;
+    if (isCoarsePointer) return;
+
     const cursor = cursorRef.current;
 
     const handleMouseMove = (e: MouseEvent) => {

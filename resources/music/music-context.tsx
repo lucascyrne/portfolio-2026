@@ -8,11 +8,22 @@ import {
   useState,
 } from 'react';
 
+type PlayerState = 'idle' | 'loading' | 'playing' | 'paused' | 'error';
+
+type ActiveTrack = 'base' | 'secret';
+
 type MusicContextType = {
   isPlaying: boolean;
-  togglePlayPause: (newSongSrc?: string) => void;
+  state: PlayerState;
+  activeTrack: ActiveTrack;
   initializeAudioContext: () => void;
-  changeTrack: (newTrackSrc: string) => void;
+  togglePlayPause: () => void;
+  ensureAudioReadyAndPlayBase: () => Promise<void>;
+  ensureAudioReadyAndPlaySecret: () => Promise<void>;
+  playBaseTrack: () => Promise<void>;
+  playSecretTrack: () => Promise<void>;
+  fadeToBaseTrack: (args: { durationMs: number }) => Promise<void>;
+  stop: () => void;
   audioRef1: React.RefObject<HTMLAudioElement>;
   audioRef2: React.RefObject<HTMLAudioElement>;
   analyser: AnalyserNode | null;
@@ -37,9 +48,11 @@ const useMusicState = () => {
   const audioRef1 = useRef<HTMLAudioElement>(null);
   const audioRef2 = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [state, setState] = useState<PlayerState>('idle');
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
-  const [activeAudio, setActiveAudio] = useState(1);
+  const [activeAudio, setActiveAudio] = useState<1 | 2>(1);
   const audioCtxRef = useRef<AudioContext | null>(null);
+  const fadeTokenRef = useRef(0);
 
   const mediaElementSourceRef = useRef<
     Map<HTMLAudioElement, MediaElementAudioSourceNode>
@@ -57,6 +70,25 @@ const useMusicState = () => {
 
     toggleLoading('initializeAudioContext', true);
     try {
+      setState('loading');
+      // #region agent log
+      fetch('http://127.0.0.1:7684/ingest/6fbaaf9d-b443-4554-a05b-0c553472d370', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Debug-Session-Id': '5ef607',
+        },
+        body: JSON.stringify({
+          sessionId: '5ef607',
+          runId: 'init-audio-1',
+          hypothesisId: 'H1',
+          location: 'music-context.tsx:initializeAudioContext:start',
+          message: 'initializeAudioContext called',
+          data: { audioInitialized },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion agent log
       const AudioContextClass =
         window.AudioContext || (window as any).webkitAudioContext;
       const audioCtx = new AudioContextClass();
@@ -91,64 +123,246 @@ const useMusicState = () => {
 
       setAudioInitialized(true);
       setAudioReady(true);
+      setState('paused');
+      // #region agent log
+      fetch('http://127.0.0.1:7684/ingest/6fbaaf9d-b443-4554-a05b-0c553472d370', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Debug-Session-Id': '5ef607',
+        },
+        body: JSON.stringify({
+          sessionId: '5ef607',
+          runId: 'init-audio-1',
+          hypothesisId: 'H1',
+          location: 'music-context.tsx:initializeAudioContext:end',
+          message: 'initializeAudioContext finished',
+          data: { audioInitialized: true, audioReady: true, ctxState: audioCtx.state },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion agent log
     } finally {
       toggleLoading('initializeAudioContext', false);
     }
-  }, [audioInitialized]);
+  }, [audioInitialized, toggleLoading]);
 
-  const changeTrack = useCallback(
-    async (newTrackSrc: string) => {
+  const getAudioByIndex = useCallback(
+    (index: 1 | 2) => (index === 1 ? audioRef1.current : audioRef2.current),
+    []
+  );
+
+  const playTrack = useCallback(
+    async (target: 1 | 2, syncPosition = true) => {
+      const from = getAudioByIndex(activeAudio);
+      const to = getAudioByIndex(target);
+
+      if (!to) return;
+
       toggleLoading('changeTrack', true);
+      setState('loading');
       try {
-        // Pausar o áudio ativo
-        const currentAudio =
-          activeAudio === 1 ? audioRef1.current : audioRef2.current;
-        if (currentAudio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0; // Opcional: resetar para o início do áudio
+        // Pausa sempre todas as trilhas antes de tocar a nova
+        from?.pause();
+
+        if (syncPosition && from) {
+          to.currentTime = from.currentTime;
         }
 
-        // Configurar e tocar o próximo áudio
-        const nextAudio =
-          activeAudio === 1 ? audioRef2.current : audioRef1.current;
-        if (!nextAudio) return;
+        await to.play();
 
-        nextAudio.src = newTrackSrc;
-        await nextAudio.load();
-        await nextAudio.play();
-
-        // Atualizar o áudio ativo
-        if (audioCtxRef.current && analyser) {
-          const source = mediaElementSourceRef.current.get(nextAudio);
-          if (source) {
-            source.connect(analyser);
-            analyser.connect(audioCtxRef.current.destination);
-          }
-        }
-
-        setActiveAudio(activeAudio === 1 ? 2 : 1);
+        setActiveAudio(target);
         setIsPlaying(true);
+        setState('playing');
+      } catch (error) {
+        console.error('Erro ao tocar trilha de áudio:', error);
+        // Alguns navegadores ainda podem bloquear o primeiro play mesmo após interação.
+        // Tratamos esse caso como \"áudio pronto, mas pausado\" em vez de erro fatal.
+        const name = (error as any)?.name ?? '';
+        if (name === 'NotAllowedError') {
+          setState('paused');
+        } else {
+          setState('error');
+        }
       } finally {
         toggleLoading('changeTrack', false);
       }
     },
-    [activeAudio, analyser]
+    [activeAudio, toggleLoading, getAudioByIndex]
   );
+
+  const playBaseTrack = useCallback(
+    async () => {
+      await playTrack(1, activeAudio === 2);
+    },
+    [activeAudio, playTrack]
+  );
+
+  const playSecretTrack = useCallback(
+    async () => {
+      await playTrack(2, activeAudio === 1);
+    },
+    [activeAudio, playTrack]
+  );
+
+  const fadeToBaseTrack = useCallback(
+    async ({ durationMs }: { durationMs: number }) => {
+      // Crossfade sutil sem reiniciar o tempo: só interpolamos volume.
+      if (activeAudio === 1) return;
+      if (!audioInitialized || !isPlaying) return;
+
+      const from = audioRef2.current; // secret
+      const to = audioRef1.current; // base
+      if (!from || !to) return;
+
+      const token = ++fadeTokenRef.current;
+      const fromStartVolume = from.volume ?? 1;
+      const syncTime = from.currentTime;
+
+      // Mantém o mesmo tempo, mas com volume 0 no destino.
+      to.currentTime = syncTime;
+      to.volume = 0;
+
+      try {
+        await to.play();
+      } catch {
+        // Se o browser bloquear o play, ainda assim não queremos estourar a UX.
+      }
+
+      const start = performance.now();
+
+      const tick = (now: number) => {
+        if (fadeTokenRef.current !== token) return;
+
+        const rawT = (now - start) / durationMs;
+        const t = Math.max(0, Math.min(1, rawT));
+        const eased = t; // linear: suficientemente sutil e estável
+
+        from.volume = fromStartVolume * (1 - eased);
+        to.volume = eased;
+
+        if (t < 1) {
+          requestAnimationFrame(tick);
+          return;
+        }
+
+        // Finaliza a transição.
+        try {
+          from.pause();
+        } catch {
+          // ignore
+        }
+        from.volume = 0;
+        to.volume = 1;
+
+        setActiveAudio(1);
+        setState('playing');
+        setIsPlaying(true);
+      };
+
+      requestAnimationFrame(tick);
+    },
+    [activeAudio, audioInitialized, isPlaying]
+  );
+
+  const ensureAudioReadyAndPlayBase = useCallback(async () => {
+    try {
+      if (!audioInitialized) {
+        await initializeAudioContext();
+      }
+
+      // #region agent log
+      fetch('http://127.0.0.1:7684/ingest/6fbaaf9d-b443-4554-a05b-0c553472d370', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Debug-Session-Id': '5ef607',
+        },
+        body: JSON.stringify({
+          sessionId: '5ef607',
+          runId: 'init-audio-1',
+          hypothesisId: 'H2',
+          location: 'music-context.tsx:ensureAudioReadyAndPlayBase:beforePlay',
+          message: 'After initializeAudioContext',
+          data: { audioInitialized, audioReady, state },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion agent log
+
+      await playBaseTrack();
+    } catch (error) {
+      console.error('Erro ao inicializar áudio base:', error);
+      setState('error');
+    }
+  }, [audioInitialized, audioReady, state, initializeAudioContext, playBaseTrack]);
+
+  const ensureAudioReadyAndPlaySecret = useCallback(async () => {
+    try {
+      if (!audioInitialized) {
+        await initializeAudioContext();
+      }
+      await playSecretTrack();
+    } catch (error) {
+      console.error('Erro ao inicializar áudio secret:', error);
+      setState('error');
+    }
+  }, [audioInitialized, initializeAudioContext, playSecretTrack]);
 
   const togglePlayPause = useCallback(async () => {
     if (!audioReady) return;
 
-    const currentAudio =
-      activeAudio === 1 ? audioRef1.current : audioRef2.current;
+    const currentAudio = getAudioByIndex(activeAudio);
+    if (!currentAudio) return;
 
     if (isPlaying) {
-      currentAudio?.pause();
+      currentAudio.pause();
       setIsPlaying(false);
+      setState('paused');
     } else {
-      await currentAudio?.play();
-      setIsPlaying(true);
+      // #region agent log
+      fetch('http://127.0.0.1:7684/ingest/6fbaaf9d-b443-4554-a05b-0c553472d370', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Debug-Session-Id': '5ef607',
+        },
+        body: JSON.stringify({
+          sessionId: '5ef607',
+          runId: 'init-audio-1',
+          hypothesisId: 'H3',
+          location: 'music-context.tsx:togglePlayPause:beforePlay',
+          message: 'Attempting play on currentAudio',
+          data: { audioReady, activeAudio, isPlaying },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion agent log
+
+      try {
+        await currentAudio.play();
+        setIsPlaying(true);
+        setState('playing');
+      } catch (error) {
+        console.error('Erro ao alternar play/pause:', error);
+        const name = (error as any)?.name ?? '';
+        if (name === 'NotAllowedError') {
+          // Contexto desbloqueado, mas play ainda bloqueado: mantemos como pausado.
+          setState('paused');
+        } else {
+          setState('error');
+        }
+      }
     }
-  }, [audioReady, activeAudio, isPlaying]);
+  }, [audioReady, activeAudio, isPlaying, getAudioByIndex]);
+
+  const stop = useCallback(() => {
+    const current = getAudioByIndex(activeAudio);
+    current?.pause();
+    if (current) current.currentTime = 0;
+    setIsPlaying(false);
+    setState('idle');
+  }, [activeAudio, getAudioByIndex]);
 
   // useEffect(() => {
   //   const unlockAudio = () => {
@@ -210,14 +424,21 @@ const useMusicState = () => {
 
   return {
     isPlaying,
+    state,
+    activeTrack: activeAudio === 1 ? ('base' as ActiveTrack) : ('secret' as ActiveTrack),
+    initializeAudioContext,
     togglePlayPause,
+    ensureAudioReadyAndPlayBase,
+    ensureAudioReadyAndPlaySecret,
+    playBaseTrack,
+    playSecretTrack,
+    fadeToBaseTrack,
+    stop,
     audioRef1,
     audioRef2,
     analyser,
     audioReady,
     loading,
-    initializeAudioContext,
-    changeTrack,
   };
 };
 
@@ -227,11 +448,17 @@ export const MusicProvider = ({ children }: { children: ReactNode }) => {
   return (
     <MusicContext.Provider value={musicState}>
       {children}
-      <audio ref={musicState.audioRef1} src="assets/mp3/song.mp3" loop />
+      <audio
+        ref={musicState.audioRef1}
+        src="assets/mp3/song.mp3"
+        loop
+        preload="auto"
+      />
       <audio
         ref={musicState.audioRef2}
         src="assets/mp3/portfolio-song-final.mp3"
         loop
+        preload="auto"
       />
     </MusicContext.Provider>
   );

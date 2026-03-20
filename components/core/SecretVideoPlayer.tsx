@@ -45,7 +45,8 @@ const SecretVideoPlayer: React.FC<{
       />
       {/* Botão para fechar o vídeo */}
       <button
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           // #region agent log
           fetch(
             'http://127.0.0.1:7684/ingest/6fbaaf9d-b443-4554-a05b-0c553472d370',
@@ -69,7 +70,7 @@ const SecretVideoPlayer: React.FC<{
           // #endregion agent log
           onClose();
         }}
-        className="fixed top-16 right-4 z-[70] text-accent-foreground bg-accent rounded-full p-2 text-lg cursor-pointer shadow-md ring-1 ring-border/60"
+        className="fixed top-16 left-4 z-[70] rounded-full p-2 text-lg cursor-pointer bg-surface/60 text-foreground/75 shadow-sm ring-1 ring-border/35 backdrop-blur-sm transition-colors hover:bg-surface/75 hover:text-foreground"
         aria-label="Fechar modo secreto"
       >
         <RxCross2 />

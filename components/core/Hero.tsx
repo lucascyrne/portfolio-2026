@@ -7,6 +7,9 @@ import PrimaryButton from '../ui/PrimaryButton';
 import SecretButton from '../ui/SecretButton';
 import { useMusic } from '@/resources/music/music-context';
 import { useRouter } from 'next/navigation';
+import { useI18n } from '@/resources/i18n';
+import HorizonLine from './HorizonLine';
+import StarsField from './StarsField';
 
 type HeroProps = {
   isSecretMode: boolean;
@@ -15,11 +18,13 @@ type HeroProps = {
 
 const Hero: FC<HeroProps> = ({ isSecretMode, setIsSecretMode }) => {
   const { push } = useRouter();
-  const { changeTrack } = useMusic();
+  const { ensureAudioReadyAndPlaySecret } = useMusic();
+  const { messages } = useI18n();
+  const L = messages.landing;
 
   const handleSecretMode = async () => {
     setIsSecretMode(true);
-    await changeTrack('/assets/mp3/portfolio-song-final.mp3');
+    await ensureAudioReadyAndPlaySecret();
   };
 
   return (
@@ -30,13 +35,23 @@ const Hero: FC<HeroProps> = ({ isSecretMode, setIsSecretMode }) => {
           : 'opacity-100 translate-y-0'
       } animate-fade-in`}
     >
-      <div className="flex flex-col items-center justify-center w-full h-full">
-        <h5 className="text-xsm">SOFTWARE DEVELOPER & DESIGNER</h5>
-        <h4 className="font-inria text-2xl italic">Reach new</h4>
-        <h5 className="font-inria text-3xl font-bold -mt-4">horizons</h5>
+      <StarsField active={!isSecretMode} />
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6">
+        <div className="flex flex-col items-center gap-1">
+          <h5 className="text-xsm tracking-[0.25em] text-muted uppercase">
+            {L.heroEyebrow}
+          </h5>
+          <h4 className="font-inria text-2xl italic text-foreground">
+            {L.heroReach}
+          </h4>
+          <h5 className="font-inria text-4xl md:text-5xl font-bold text-foreground">
+            {L.heroHorizons}
+          </h5>
+        </div>
+        <HorizonLine active={!isSecretMode} />
         <div className="flex flex-col items-center justify-center gap-2">
           <PrimaryButton
-            value={'A bit of my work'}
+            value={L.ctaWork}
             icon={<Image src={DownRight} alt={'An alt caption'} />}
             onClick={() => push('/projects')}
           />

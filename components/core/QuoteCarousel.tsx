@@ -1,67 +1,95 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
+import { useI18n } from '@/resources/i18n';
 
-const quotes = [
-  {
-    texto:
-      'As únicas pessoas que me interessam são as loucas, aquelas que são loucas por viver, loucas por falar, loucas por serem salvas; as que desejam tudo ao mesmo tempo. As que nunca bocejam ou dizem algo desinteressante, mas que queimam e brilham, brilham, brilham como luminosos fogos de artifícios cruzando o céu.',
-    autor: 'Jack Kerouac',
-    obra: 'On The Road',
-  },
-  {
-    texto:
-      'A história de todas as sociedades até agora existentes é a história das lutas de classes.',
-    autor: 'Karl Marx',
-    obra: 'Manifesto Comunista',
-  },
-  {
-    texto:
-      'Você deve viver no presente, lançar-se em cada onda, encontrar sua eternidade em cada momento.',
-    autor: 'Henry David Thoreau',
-    obra: 'Walden Lake',
-  },
-  {
-    texto:
-      'Um mentiroso de alma vibrante, que transforma a fantasia em história e a história em fantasia.',
-    autor: 'Umberto Eco',
-    obra: 'Baudolino',
-  },
-  {
-    texto:
-      'Sua existência, deformada, revela a fragilidade da conexão entre identidade e aceitação.',
-    autor: 'Franz Kafka',
-    obra: 'A Metamorfose',
-  },
-  {
-    texto:
-      'Seu coração bate no ritmo de continentes feridos, mas suas palavras inspiram luta e esperança.',
-    autor: 'Eduardo Galeano',
-    obra: 'As Veias Abertas da América Latina',
-  },
-  {
-    texto:
-      'Vi as melhores mentes da minha geração destruídas pela loucura, e gritei com elas, pois sua dor era também a minha.',
-    autor: 'Allen Ginsberg',
-    obra: 'Howl',
-  },
-];
+type QuoteCarouselProps = {
+  runOnce?: boolean;
+  onComplete?: () => void;
+};
 
-const QuoteCarousel: React.FC = () => {
+const QuoteCarousel: React.FC<QuoteCarouselProps> = ({
+  runOnce = false,
+  onComplete,
+}) => {
+  const { messages } = useI18n();
+  const quotes = messages.landing.quotes;
+  const quoteIn = messages.landing.quoteIn;
+
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeIn(false); // Inicia fade-out
-      setTimeout(() => {
-        setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-        setFadeIn(true); // Inicia fade-in
-      }, 1600); // Tempo do fade-out (1.6s)
-    }, 8000); // Tempo total para cada frase
+    if (!runOnce) {
+      const interval = setInterval(() => {
+        setFadeIn(false);
+        setTimeout(() => {
+          setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+          setFadeIn(true);
+        }, 1600);
+      }, 8000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    }
 
-  const { texto, autor, obra } = quotes[currentQuoteIndex];
+    const QUOTE_INTERVAL_MS = 8000;
+    const QUOTE_FADE_MS = 1600;
+    const timers: number[] = [];
+    let completed = false;
+
+    setCurrentQuoteIndex(0);
+    setFadeIn(true);
+
+    const schedule = (fn: () => void, ms: number) => {
+      const id = window.setTimeout(() => fn(), ms);
+      timers.push(id);
+    };
+
+    const n = quotes.length;
+    if (n <= 1) {
+      schedule(() => setFadeIn(false), QUOTE_INTERVAL_MS);
+      schedule(() => {
+        if (completed) return;
+        completed = true;
+        onComplete?.();
+      }, QUOTE_INTERVAL_MS + QUOTE_FADE_MS);
+    } else {
+      // Intercala fade-out e troca de quote (mantém a estética do modo atual).
+      for (let i = 0; i < n - 1; i++) {
+        const startFadeOutAt = (i + 1) * QUOTE_INTERVAL_MS;
+        const nextIndex = i + 1;
+
+        schedule(() => setFadeIn(false), startFadeOutAt);
+        schedule(() => {
+          setCurrentQuoteIndex(nextIndex);
+          setFadeIn(true);
+        }, startFadeOutAt + QUOTE_FADE_MS);
+      }
+
+      const lastIndex = n - 1;
+      const lastVisibleAt = lastIndex * QUOTE_INTERVAL_MS + QUOTE_FADE_MS;
+      const startFadeOutLast = lastVisibleAt + QUOTE_INTERVAL_MS;
+
+      schedule(() => {
+        // garante consistência caso o estado mude rapidamente
+        setCurrentQuoteIndex(lastIndex);
+        setFadeIn(false);
+      }, startFadeOutLast);
+
+      schedule(() => {
+        if (completed) return;
+        completed = true;
+        onComplete?.();
+      }, startFadeOutLast + QUOTE_FADE_MS);
+    }
+
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [runOnce, onComplete, quotes.length]);
+
+  const q = quotes[currentQuoteIndex];
 
   return (
     <section className="absolute top-0 left-0 flex items-center justify-center w-full h-full">
@@ -71,10 +99,10 @@ const QuoteCarousel: React.FC = () => {
         }`}
       >
         <h1 className="font-inria text-center text-white text-shadow text-lg">
-          {texto}
+          {q.text}
         </h1>
         <h4 className="font-inria text-center text-white text-shadow text-md">
-          {autor} em <i className="text-primary">{obra}</i>
+          {q.author} {quoteIn} <i className="text-primary">{q.work}</i>
         </h4>
       </div>
     </section>

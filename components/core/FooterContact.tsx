@@ -1,58 +1,67 @@
+'use client';
+
 import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 
-const Footer = () => {
+import LogoHorizonte from '@/components/ui/LogoHorizonte';
+import type { AppLocale } from '@/resources/i18n';
+import { useTheme } from '@/resources/theme/theme-context';
+
+type FooterContactProps = {
+  blurb: string;
+  rights: string;
+  locale: AppLocale;
+};
+
+const FooterContact = ({ blurb, rights, locale }: FooterContactProps) => {
+  const { theme } = useTheme();
+  const logoTheme = theme === 'dark' ? 'dark' : 'light';
+  const resumeHref =
+    locale === 'pt'
+      ? '/assets/docs/resume-pt-br-2026.pdf'
+      : '/assets/docs/resume-eng-2026.pdf';
+
   return (
-    <footer className="w-full h-full bg-transparent text-slate-200 py-8">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        {/* Logo e descrição */}
-        <div className="text-center md:text-left">
-          <h1 className="text-2xl md:text-3xl font-bold text-white">
-            HORIZONTE{' '}
-            <span className="font-inria text-base md:text-lg font-light">
-              studios™
-            </span>
-          </h1>
-          <p className="mt-2 text-slate-400">
-            This is a portfolio showcasing skills and projects, blending
-            creativity and technology to deliver innovative solutions.
-          </p>
+    <footer className="w-full border-t border-border bg-surface py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
+          <LogoHorizonte variant="full" theme={logoTheme} size={100} />
+          <p className="max-w-md text-sm text-muted-foreground">{blurb}</p>
         </div>
 
-        {/* Ícones sociais */}
-        <div className="flex space-x-4 mt-6 md:mt-0">
+        <div className="flex gap-3">
           <a
             href="https://github.com/lucascyrne"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full bg-slate-800 hover:bg-sky-500 transition"
+            className="rounded-full border border-border bg-surface-muted p-3 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            aria-label="GitHub"
           >
-            <FaGithub size={20} className="text-white" />
+            <FaGithub size={20} />
           </a>
           <a
             href="https://www.linkedin.com/in/lucas-cyrne-8b8314153/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full bg-slate-800 hover:bg-sky-500 transition"
+            className="rounded-full border border-border bg-surface-muted p-3 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            aria-label="LinkedIn"
           >
-            <FaLinkedin size={20} className="text-white" />
+            <FaLinkedin size={20} />
           </a>
           <a
-            href="https://read.cv/lucascyrne"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-slate-800 hover:bg-sky-500 transition"
+            href={resumeHref}
+            className="rounded-full border border-border bg-surface-muted p-3 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            aria-label="Resume PDF"
           >
-            <FaFileAlt size={20} className="text-white" />
+            <FaFileAlt size={20} />
           </a>
         </div>
       </div>
 
-      {/* Direitos autorais */}
-      <div className="text-center text-slate-500 mt-8 text-sm">
-        © HORIZONTE studios™. All rights reserved. 2024-present.
-      </div>
+      <p className="mt-10 text-center text-xs text-muted-foreground">
+        {rights}
+      </p>
     </footer>
   );
 };
 
-export default Footer;
+export default FooterContact;

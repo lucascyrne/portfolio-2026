@@ -1,8 +1,9 @@
-import { useMusic } from '@/resources/music/music-context';
+'use client';
+
 import { useState } from 'react';
-import { IoMdDownload } from 'react-icons/io';
 import { TfiWorld } from 'react-icons/tfi';
-import { ClipLoader } from 'react-spinners';
+import { useI18n } from '@/resources/i18n';
+
 
 interface SecretButtonProps {
   onClick: () => void;
@@ -10,13 +11,12 @@ interface SecretButtonProps {
 
 const SecretButton: React.FC<SecretButtonProps> = ({ onClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { loading, audioReady, changeTrack } = useMusic();
+  const { t } = useI18n();
 
   return (
     <button
-      className={`relative group border border-primary rounded-full h-12 flex items-center
-        bg-transparent overflow-hidden transition-all duration-500 ease-in-out
-        ${isExpanded ? 'pl-4 w-48' : 'w-12'} bg-transparent shadow-lg
+      className={`relative group rounded-full h-12 flex items-center overflow-hidden transition-all duration-500 ease-in-out shadow-lg border border-border
+        ${isExpanded ? 'bg-surface-muted max-w-[18rem] pl-4 pr-3' : 'bg-transparent max-w-12 pl-0 pr-0'}
       `}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
@@ -34,15 +34,15 @@ const SecretButton: React.FC<SecretButtonProps> = ({ onClick }) => {
       {/* Texto exibido ao expandir */}
       <span
         className={`flex items-center justify-center whitespace-nowrap font-medium
-          transition-opacity duration-300 ease-in-out
-          ${isExpanded ? 'opacity-100' : 'opacity-0'} text-primary
+          transition-opacity duration-300 ease-in-out text-primary
+          ${isExpanded ? 'opacity-100' : 'opacity-0'}
         `}
       >
-        A bit about me
+        {t('landing.secretButton')}
       </span>
 
       {/* Animação ao clicar */}
-      <span className="absolute inset-0 bg-[#ffe7eb] opacity-30 scale-0 group-active:scale-100 rounded-full transition-transform duration-50 ease-in-out z-10" />
+      <span className="absolute inset-0 bg-accent opacity-20 scale-0 group-active:scale-100 rounded-full transition-transform duration-75 ease-in-out z-10" />
     </button>
   );
 };

@@ -1,77 +1,65 @@
+'use client';
+
 import { useState } from 'react';
-import { IoAddOutline, IoCloseOutline, IoRemoveOutline } from 'react-icons/io5';
+import { IoAddOutline, IoRemoveOutline } from 'react-icons/io5';
 
-const faqs = [
-  {
-    question: 'What experience do you have in software development?',
-    answer:
-      'I have hands-on experience in frontend and backend development, cloud infrastructure, and database management, working across diverse industries like fintech, logistics, and gaming.',
-  },
-  {
-    question: 'What makes you stand out as a developer?',
-    answer:
-      'I combine technical expertise with creative problem-solving and excellent communication skills, ensuring high-quality solutions aligned with team goals and client needs.',
-  },
-  {
-    question: 'How do you approach project deadlines?',
-    answer:
-      'I prioritize effective time management and clear communication, ensuring tasks are delivered on schedule while maintaining the highest quality standards.',
-  },
-  {
-    question: 'Do you work well in team environments?',
-    answer:
-      'Absolutely! I thrive in agile team settings, using methodologies like Scrum to enhance collaboration and productivity while fostering a positive work environment.',
-  },
-  {
-    question: 'What technologies are you proficient in?',
-    answer:
-      'I am skilled in technologies like Next.js, React, Spring Boot, .NET, Tailwind CSS, AWS, and more, with a focus on delivering scalable and efficient solutions.',
-  },
-];
+import type { FaqItem } from '@/resources/contact/types';
 
-const FAQ = () => {
+type FAQProps = {
+  heading: string;
+  items: FaqItem[];
+  id?: string;
+};
+
+const FAQ = ({ heading, items, id }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(index === openIndex ? null : index);
-  };
+  const headingId = id ? `${id}-heading` : 'faq-heading';
 
   return (
-    <section className="w-full h-full px-8 py-12 bg-transparent text-slate-200">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-inria animate-fade-in">
-        Frequently Asked Questions
+    <section
+      id={id}
+      className="w-full bg-surface-muted/50 px-4 py-12 md:py-16"
+      aria-labelledby={headingId}
+    >
+      <h2
+        id={headingId}
+        className="mb-8 text-center font-inria text-2xl font-bold text-foreground md:text-3xl"
+      >
+        {heading}
       </h2>
-      <div className="max-w-4xl mx-auto space-y-6">
-        {faqs.map((faq, index) => (
+      <div className="mx-auto max-w-3xl space-y-3">
+        {items.map((faq, index) => (
           <div
-            key={index}
-            className="bg-slate-700 rounded-lg shadow-md overflow-hidden"
+            key={faq.question}
+            className="overflow-hidden rounded-xl border border-border bg-surface shadow-sm"
           >
             <button
-              className="flex justify-between items-center w-full p-4 text-base md:text-lg font-semibold text-slate-200 hover:text-sky-400 font-inria duration-300"
-              onClick={() => toggleFAQ(index)}
+              type="button"
+              className="flex w-full items-center justify-between gap-3 p-4 text-left font-inria text-base font-semibold text-foreground transition-colors hover:text-primary md:text-lg"
+              onClick={() =>
+                setOpenIndex((prev) => (prev === index ? null : index))
+              }
+              aria-expanded={openIndex === index}
             >
               {faq.question}
-              <span className="transition-opacity duration-300 ease-in-out">
+              <span className="shrink-0">
                 {openIndex === index ? (
-                  <IoRemoveOutline size={24} className="opacity-100" />
+                  <IoRemoveOutline size={24} className="text-primary" />
                 ) : (
-                  <IoAddOutline size={24} className="opacity-100" />
+                  <IoAddOutline size={24} />
                 )}
               </span>
             </button>
             <div
-              className={`transition-all duration-500 ease-in-out ${
+              className={`transition-all duration-300 ease-out ${
                 openIndex === index
-                  ? 'max-h-screen opacity-100'
+                  ? 'max-h-[min(24rem,80vh)] opacity-100'
                   : 'max-h-0 opacity-0'
-              }`}
-              style={{
-                overflow: 'hidden',
-                padding: openIndex === index ? '0 1rem 1rem' : '0 1rem 0',
-              }}
+              } overflow-hidden`}
             >
-              <p className="text-slate-400 mt-2">{faq.answer}</p>
+              <p className="border-t border-border px-4 pb-4 pt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {faq.answer}
+              </p>
             </div>
           </div>
         ))}

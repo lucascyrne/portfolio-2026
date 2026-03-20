@@ -13,26 +13,13 @@ const SoundVisualizer: FC<SoundVisualizerProps> = ({ isSecretMode }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (!audioReady) {
-      console.log('SoundVisualizer: Áudio ainda não está pronto.');
+    if (!audioReady || !analyser || !canvasRef.current || !isPlaying) {
       return;
     }
-
-    if (!analyser || !canvasRef.current || !isPlaying) {
-      console.warn(
-        'SoundVisualizer: Requisitos não atendidos para iniciar visualização.'
-      );
-      return;
-    }
-
-    console.log('SoundVisualizer: Inicializando visualização de áudio...');
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    if (!ctx) {
-      console.error('SoundVisualizer: Falha ao obter o contexto 2D do canvas.');
-      return;
-    }
+    if (!ctx) return;
 
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
@@ -61,16 +48,19 @@ const SoundVisualizer: FC<SoundVisualizerProps> = ({ isSecretMode }) => {
 
         const barHeight = interpolatedHeight / 2;
 
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+
         if (isSecretMode) {
-          const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-          gradient.addColorStop(0, 'rgba(0, 0, 0, 0.24)'); // Preto com 72% de opacidade
-          gradient.addColorStop(0.75, 'rgba(136, 0, 0, 0.24)'); // Vermelho escuro com 72% de opacidade
-          gradient.addColorStop(1, 'rgba(255, 255, 255, 0.24)'); // Branco com 72% de opacidade
-          ctx.fillStyle = gradient;
+          // Dusk – barras mais discretas
+          gradient.addColorStop(0, 'rgba(243, 64, 126, 0.28)');
+          gradient.addColorStop(1, 'rgba(247, 115, 115, 0.32)');
         } else {
-          const hue = 0 + (i / totalBars) * 360;
-          ctx.fillStyle = `hsla(${hue}, 80%, 55%)`;
+          // Day – barras mais vivas
+          gradient.addColorStop(0, 'rgba(243, 64, 126, 0.35)');
+          gradient.addColorStop(1, 'rgba(243, 160, 126, 0.4)');
         }
+
+        ctx.fillStyle = gradient;
 
         ctx.fillRect(
           i * barWidth,
@@ -94,14 +84,6 @@ const SoundVisualizer: FC<SoundVisualizerProps> = ({ isSecretMode }) => {
       window.removeEventListener('resize', resizeCanvas);
     };
   }, [analyser, isPlaying, audioReady, isSecretMode]);
-
-  useEffect(() => {
-    if (audioReady && analyser && isPlaying) {
-      console.log(
-        'SoundVisualizer: Requisitos atendidos. Renderizando visualizador.'
-      );
-    }
-  }, [audioReady, analyser, isPlaying]);
 
   return (
     <canvas

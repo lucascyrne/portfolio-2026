@@ -168,6 +168,20 @@
   "projects": {
     "title": "Projetos",
     "subtitle": "Navegue pelos fluxos de cada projeto em vídeo. Passe o mouse nos cards para revelar insights extras.",
+    "gamesTitle": "Jogos",
+    "gamesSubtitle": "Experiências interativas desenvolvidas pela Horizonte — além dos projetos para clientes.",
+    "playGame": "Jogar",
+    "closeGame": "Fechar",
+    "gameIframeTitle": "A Escalada — jogo Horizonte",
+    "games": {
+      "cases": {
+        "a-escalada": {
+          "title": "A Escalada",
+          "genre": "Roguelike RPG por andares",
+          "tagline": "Uma torre sem piedade. Cada andar é uma escolha: lutar, fugir ou cair."
+        }
+      }
+    },
     "customersTitle": "Clientes",
     "customersSubtitle": "Parceiros e clientes que acompanharam (e confiaram) no crescimento dos produtos.",
     "openCase": "Abrir estudo de caso",

@@ -12,6 +12,7 @@ import useCustomCursor from '@/resources/hooks/useCustomCursor';
 import useRevealText from '@/resources/hooks/useRevealText';
 import { useI18n } from '@/resources/i18n';
 import ProjectStickyPreview from '@/components/core/ProjectStickyPreview';
+import GamesSection from '@/components/core/GamesSection';
 import PartnersCarousel from '@/components/core/PartnersCarousel';
 import ProjectCard from '@/components/core/ProjectCard';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -465,6 +466,8 @@ const Work = () => {
           </div>
         </div>
       </section>
+
+      <GamesSection />
 
       <section className="px-6 pb-20">
         <div className="max-w-6xl mx-auto">

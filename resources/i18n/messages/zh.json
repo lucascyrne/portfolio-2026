@@ -168,6 +168,20 @@
   "projects": {
     "title": "项目",
     "subtitle": "通过视频浏览各项目流程。悬停卡片可查看更多洞察。",
+    "gamesTitle": "游戏",
+    "gamesSubtitle": "Horizonte 打造的互动体验——超越客户项目之外。",
+    "playGame": "开始游戏",
+    "closeGame": "关闭",
+    "gameIframeTitle": "A Escalada — Horizonte 游戏",
+    "games": {
+      "cases": {
+        "a-escalada": {
+          "title": "A Escalada",
+          "genre": "逐层 Roguelike RPG",
+          "tagline": "一座毫不留情的塔。每一层都是选择：战斗、逃离或坠落。"
+        }
+      }
+    },
     "customersTitle": "客户",
     "customersSubtitle": "陪伴并信任这些产品成长的合作伙伴与客户。",
     "openCase": "打开案例研究",

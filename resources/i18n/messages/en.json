@@ -168,6 +168,20 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Explore each project through video flows. Hover cards to reveal extra insights.",
+    "gamesTitle": "Games",
+    "gamesSubtitle": "Interactive experiences built by Horizonte — beyond client work.",
+    "playGame": "Play",
+    "closeGame": "Close",
+    "gameIframeTitle": "A Escalada — Horizonte game",
+    "games": {
+      "cases": {
+        "a-escalada": {
+          "title": "A Escalada",
+          "genre": "Floor-by-floor roguelike RPG",
+          "tagline": "A tower that shows no mercy. Each floor is a choice: fight, flee, or fall."
+        }
+      }
+    },
     "customersTitle": "Customers",
     "customersSubtitle": "Partners and clients who backed (and trusted) the growth of these products.",
     "openCase": "Open case study",

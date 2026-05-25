@@ -167,11 +167,13 @@
   },
   "projects": {
     "title": "项目",
-    "subtitle": "通过视频浏览各项目流程。悬停卡片可查看更多洞察。",
+    "subtitle": "通过视频浏览项目流程，或在浏览器中体验交互式演示。悬停卡片可查看更多洞察。",
+    "openDemoNewTab": "在新标签页打开",
+    "embedUnavailableTitle": "无法在此页面加载嵌入内容",
+    "embedUnavailableHint": "目标站点通过 Content-Security-Policy 限制了 iframe 嵌入。请使用下方按钮在新标签页中打开。",
+    "demoIframeTitle": "Apogeu — 手势乐器",
     "gamesTitle": "游戏",
     "gamesSubtitle": "Horizonte 打造的互动体验——超越客户项目之外。",
-    "playGame": "开始游戏",
-    "closeGame": "关闭",
     "gameIframeTitle": "A Escalada — Horizonte 游戏",
     "games": {
       "cases": {
@@ -227,6 +229,15 @@
         "solution": "支持银行流水自动导入、分类与实用报表。",
         "impact": "无需订阅也能获得高质量财务洞察。",
         "tags": ["金融科技", "理财", "个人"]
+      },
+      "apogeu": {
+        "title": "Apogeu",
+        "domain": "手势控制乐器",
+        "summary": "浏览器内合成器，通过摄像头手势演奏：五声音阶、手掌/握拳 gate、双手控制八度与音量。",
+        "problem": "在没有专用硬件的情况下探索富有表现力的音乐控制，并实时可视化反馈。",
+        "solution": "客户端 MediaPipe 视觉、手势到音符映射，以及摄像头、音格与 HUD 界面。",
+        "impact": "适合 Vercel 部署的作品集演示：浏览器即玩，支持带摄像头的嵌入。",
+        "tags": ["Web Audio", "计算机视觉", "React", "交互"]
       },
       "more": {
         "title": "更多...",

@@ -2,12 +2,17 @@ export type ProjectVideo = {
   src: string;
 };
 
+export type ProjectEmbed = {
+  url: string;
+};
+
 /** Dados estruturais; textos localizados em messages.*.json → projects.cases (i18n). */
 export type ProjectBase = {
   id: string;
   title: string;
-  video: ProjectVideo;
   stack: string[];
+  video?: ProjectVideo;
+  embed?: ProjectEmbed;
 };
 
 export type Project = ProjectBase & {
@@ -49,6 +54,12 @@ export const projectsBase: ProjectBase[] = [
     title: 'Cofrin',
     stack: ['React', 'Finanças', 'Interface'],
     video: { src: cofrinVideoSrc },
+  },
+  {
+    id: 'apogeu',
+    title: 'Apogeu',
+    stack: ['React', 'Vite', 'MediaPipe', 'Tone.js', 'Web Audio'],
+    embed: { url: 'https://apogeu-synth.vercel.app/' },
   },
   {
     id: 'more',

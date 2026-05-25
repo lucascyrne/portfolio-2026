@@ -167,11 +167,13 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Explore each project through video flows. Hover cards to reveal extra insights.",
+    "subtitle": "Explore video flows or try interactive in-browser demos. Hover cards to reveal extra insights.",
+    "openDemoNewTab": "Open in new tab",
+    "embedUnavailableTitle": "Could not load the embed on this page",
+    "embedUnavailableHint": "The destination site blocks iframes outside allowed domains (Content-Security-Policy). Use the button below to open in a new tab.",
+    "demoIframeTitle": "Apogeu — gesture instrument",
     "gamesTitle": "Games",
     "gamesSubtitle": "Interactive experiences built by Horizonte — beyond client work.",
-    "playGame": "Play",
-    "closeGame": "Close",
     "gameIframeTitle": "A Escalada — Horizonte game",
     "games": {
       "cases": {
@@ -227,6 +229,15 @@
         "solution": "Bank statement auto-import, categorization, and practical reporting.",
         "impact": "Better money decisions with zero subscription cost.",
         "tags": ["Fintech", "Finance", "Personal"]
+      },
+      "apogeu": {
+        "title": "Apogeu",
+        "domain": "Gesture-controlled instrument",
+        "summary": "In-browser synthesizer driven by webcam gestures: pentatonic scale, palm/fist gate, octave and volume with both hands.",
+        "problem": "Explore expressive musical control without dedicated hardware, with real-time visual feedback.",
+        "solution": "Client-side MediaPipe vision, gesture-to-note mapping (audio/mapping packages), and UI with camera, sonic grid, and HUD.",
+        "impact": "Portfolio-ready Vercel deploy: instant browser play, designed for embed with camera access.",
+        "tags": ["Web Audio", "Computer Vision", "React", "Interactive"]
       },
       "more": {
         "title": "More...",

@@ -23,6 +23,10 @@
   --color-secondary-foreground: #1f2933;
   --color-accent: #f3407e;
   --color-accent-foreground: #fef9fa;
+  /* Atmosfera horizonte (landing-day) */
+  --horizon-glow-1: #bae6fd;
+  --horizon-glow-2: #7dd3fc;
+  --horizon-glow-3: #fbcfe8;
 }
 
 .dark {
@@ -43,6 +47,10 @@
   --color-secondary-foreground: #020617;
   --color-accent: #f3407e;
   --color-accent-foreground: #020617;
+  /* Atmosfera horizonte (landing-sunset) */
+  --horizon-glow-1: #1e293b;
+  --horizon-glow-2: #be185d;
+  --horizon-glow-3: #f3407e;
 }
 
 body {
@@ -249,4 +257,153 @@ body {
   animation-name: horizonStarTwinkle;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+/* Transição atmosférica Projetos ↔ Jogos (50% orbit + 50% orbit, linha no centro) */
+.horizon-section-transition {
+  --horizon-orbit-h: min(900px, 80vh);
+  --horizon-span: var(--horizon-orbit-h);
+  position: relative;
+  z-index: 10;
+  height: var(--horizon-span);
+  margin-top: calc(var(--horizon-span) / -2);
+  margin-bottom: calc(var(--horizon-span) / -2);
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Glow único: pico em 50% (linha), sem duas metades que se separam */
+.horizon-section-transition__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--horizon-glow-1) 32%,
+    var(--horizon-glow-2) 42%,
+    var(--horizon-glow-3) 50%,
+    var(--horizon-glow-2) 58%,
+    var(--horizon-glow-1) 68%,
+    transparent 100%
+  );
+  background-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  animation: horizonGlowBreathe 18s ease-in-out infinite alternate;
+}
+
+.horizon-section-transition__glow--static {
+  animation: none;
+}
+
+.horizon-section-transition__stars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.horizon-section-transition__stars--up {
+  top: 0;
+}
+
+.horizon-section-transition__stars--down {
+  bottom: 0;
+}
+
+.horizon-section-transition__line {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+
+@keyframes horizonGlowBreathe {
+  0% {
+    opacity: 0.88;
+    filter: brightness(0.96);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.04);
+  }
+}
+
+@keyframes horizonStarDriftUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 90%);
+  }
+  12% {
+    opacity: var(--starOpacity);
+  }
+  88% {
+    opacity: var(--starOpacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -110%);
+  }
+}
+
+@keyframes horizonStarDriftDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  12% {
+    opacity: var(--starOpacity);
+  }
+  88% {
+    opacity: var(--starOpacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 110%);
+  }
+}
+
+.horizon-star--drift-up {
+  animation-name: horizonStarDriftUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.horizon-star--drift-down {
+  animation-name: horizonStarDriftDown;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .horizon-section-transition__glow {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+  }
+
+  .horizon-star--drift-up,
+  .horizon-star--drift-down {
+    animation: none;
+    opacity: var(--starOpacity);
+    transform: translate(-50%, -50%);
+  }
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import MediaEmbedFrame from '@/components/core/MediaEmbedFrame';
-import HorizonLine from '@/components/core/HorizonLine';
+import MediaEmbedFrame, {
+  EmbedOpenLink,
+} from '@/components/core/MediaEmbedFrame';
 import OrbitShowcase, { type OrbitItem } from '@/components/core/OrbitShowcase';
 import { gamesBase } from '@/resources/games/games-data';
 import { useI18n } from '@/resources/i18n';
@@ -41,14 +42,9 @@ const GamesSection = () => {
   return (
     <section
       id="games"
-      className="overflow-x-hidden py-12 md:py-16"
+      className="relative z-20 overflow-x-hidden pb-12 pt-6 md:pb-16 md:pt-8"
       aria-labelledby="games-heading"
     >
-      <HorizonLine
-        active
-        containerClassName="relative left-1/2 mb-8 w-screen -translate-x-1/2 md:mb-10"
-      />
-
       <div className="px-6">
         <div className="mx-auto mb-6 max-w-6xl md:mb-8">
           <h2
@@ -72,17 +68,23 @@ const GamesSection = () => {
           centerMaxWidthClass="mx-auto w-full max-w-4xl"
           renderCenter={() =>
             activeGame ? (
-              <div className="relative w-full aspect-video lg:aspect-[2196/1080]">
-                <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-border">
-                  <MediaEmbedFrame
-                    embedUrl={activeGame.embedUrl}
-                    iframeTitle={t('projects.gameIframeTitle')}
-                    openNewTabLabel={t('projects.openDemoNewTab')}
-                    embedUnavailableTitle={t('projects.embedUnavailableTitle')}
-                    embedUnavailableHint={t('projects.embedUnavailableHint')}
-                    isActive
-                  />
+              <div className="flex w-full flex-col">
+                <div className="relative w-full aspect-video lg:aspect-[2196/1080]">
+                  <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-border">
+                    <MediaEmbedFrame
+                      embedUrl={activeGame.embedUrl}
+                      iframeTitle={t('projects.gameIframeTitle')}
+                      openNewTabLabel={t('projects.openDemoNewTab')}
+                      embedUnavailableTitle={t('projects.embedUnavailableTitle')}
+                      embedUnavailableHint={t('projects.embedUnavailableHint')}
+                      isActive
+                    />
+                  </div>
                 </div>
+                <EmbedOpenLink
+                  embedUrl={activeGame.embedUrl}
+                  label={t('projects.openDemoNewTab')}
+                />
               </div>
             ) : null
           }

@@ -10,9 +10,9 @@ import { SecretModeProvider } from '@/resources/secret-mode/secret-mode-context'
 import { ThemeProvider } from '@/resources/theme/theme-context';
 import { I18nProvider } from '@/resources/i18n';
 import Template from './template';
+import { isMenuHotzone } from '@/resources/utils/menu-hotzone';
 
 const inter = Inter({ subsets: ['latin'] });
-const REGION_WIDTH = 160;
 
 export default function RootLayout({
   children,
@@ -31,7 +31,7 @@ export default function RootLayout({
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDesktop()) return;
 
-      const inRegion = e.clientX >= window.innerWidth - REGION_WIDTH;
+      const inRegion = isMenuHotzone(e.clientX, e.clientY);
 
       if (inRegion === regionHoverRef.current) return;
 

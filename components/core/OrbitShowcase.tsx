@@ -359,7 +359,7 @@ const OrbitShowcase = ({
             </div>
           </div>
 
-          <div className="absolute inset-0 z-[30]">
+          <div className="pointer-events-none absolute inset-0 z-[30]">
             {orbitReady &&
               items.map((item, idx) => (
                 <ProjectCard

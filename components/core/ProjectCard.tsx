@@ -89,6 +89,7 @@ export default function ProjectCard({
         'flex-shrink-0 w-[224px] sm:w-[252px] h-[196px] sm:h-[210px]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset',
         dragEnabled ? (isDragging ? 'cursor-grabbing' : 'cursor-grab') : '',
+        dragEnabled ? 'pointer-events-auto' : '',
       ].join(' ')}
       onPointerDown={(e) => {
         if (!canDrag) return;

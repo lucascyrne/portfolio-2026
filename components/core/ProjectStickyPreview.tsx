@@ -1,6 +1,8 @@
 'use client';
 
-import MediaEmbedFrame from '@/components/core/MediaEmbedFrame';
+import MediaEmbedFrame, {
+  EmbedOpenLink,
+} from '@/components/core/MediaEmbedFrame';
 import { useI18n } from '@/resources/i18n';
 import type { Project } from '@/resources/projects/projects-data';
 
@@ -18,18 +20,24 @@ const ProjectStickyPreview = ({
 
   if (embedUrl) {
     return (
-      <div className="relative w-full aspect-video lg:aspect-[2196/1080]">
-        <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-border">
-          <MediaEmbedFrame
-            embedUrl={embedUrl}
-            iframeTitle={t('projects.demoIframeTitle')}
-            openNewTabLabel={t('projects.openDemoNewTab')}
-            embedUnavailableTitle={t('projects.embedUnavailableTitle')}
-            embedUnavailableHint={t('projects.embedUnavailableHint')}
-            isActive={isActive}
-            allowCamera
-          />
+      <div className="flex w-full flex-col">
+        <div className="relative w-full aspect-video lg:aspect-[2196/1080]">
+          <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-border">
+            <MediaEmbedFrame
+              embedUrl={embedUrl}
+              iframeTitle={t('projects.demoIframeTitle')}
+              openNewTabLabel={t('projects.openDemoNewTab')}
+              embedUnavailableTitle={t('projects.embedUnavailableTitle')}
+              embedUnavailableHint={t('projects.embedUnavailableHint')}
+              isActive={isActive}
+              allowCamera
+            />
+          </div>
         </div>
+        <EmbedOpenLink
+          embedUrl={embedUrl}
+          label={t('projects.openDemoNewTab')}
+        />
       </div>
     );
   }

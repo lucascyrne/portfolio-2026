@@ -14,6 +14,7 @@ import { useI18n } from '@/resources/i18n';
 import ProjectStickyPreview from '@/components/core/ProjectStickyPreview';
 import OrbitShowcase, { type OrbitItem } from '@/components/core/OrbitShowcase';
 import GamesSection from '@/components/core/GamesSection';
+import HorizonSectionTransition from '@/components/core/HorizonSectionTransition';
 import PartnersCarousel from '@/components/core/PartnersCarousel';
 import { useMemo, useState } from 'react';
 
@@ -69,7 +70,7 @@ const Work = () => {
         </div>
       </section>
 
-      <section className="w-full px-6 pb-16">
+      <section className="relative z-20 w-full px-6 pb-0">
         <OrbitShowcase
           items={orbitItems}
           activeId={activeProjectId}
@@ -81,6 +82,8 @@ const Work = () => {
           }
         />
       </section>
+
+      <HorizonSectionTransition active />
 
       <GamesSection />
 

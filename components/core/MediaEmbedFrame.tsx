@@ -24,6 +24,31 @@ const isBlockedFrameLocation = (href: string | undefined) => {
   );
 };
 
+const openLinkClass =
+  'inline-flex rounded-full border border-border bg-surface-muted px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-surface';
+
+/** Link fora do canvas do iframe — não bloqueia interação com o embed. */
+export const EmbedOpenLink = ({
+  embedUrl,
+  label,
+  className = '',
+}: {
+  embedUrl: string;
+  label: string;
+  className?: string;
+}) => (
+  <div className={`mt-3 flex justify-end ${className}`.trim()}>
+    <a
+      href={embedUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={openLinkClass}
+    >
+      {label}
+    </a>
+  </div>
+);
+
 const MediaEmbedFrame = ({
   embedUrl,
   iframeTitle,
@@ -59,9 +84,6 @@ const MediaEmbedFrame = ({
     return () => window.clearTimeout(timer);
   }, [embedUrl, isActive, checkIframeBlocked]);
 
-  const openLinkClass =
-    'rounded-full border border-white/25 bg-[#0b0b12]/80 px-4 py-2 text-xs font-medium text-white/90 backdrop-blur-sm transition-colors hover:bg-white/10 hover:text-white';
-
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#0b0b12]">
       {isActive && !embedBlocked ? (
@@ -92,7 +114,7 @@ const MediaEmbedFrame = ({
             href={embedUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={openLinkClass}
+            className="rounded-full border border-white/25 bg-[#0b0b12]/80 px-4 py-2 text-xs font-medium text-white/90 backdrop-blur-sm transition-colors hover:bg-white/10 hover:text-white"
           >
             {openNewTabLabel}
           </a>
@@ -104,17 +126,6 @@ const MediaEmbedFrame = ({
           className="absolute inset-0 animate-pulse bg-[#0b0b12]"
           aria-hidden
         />
-      ) : null}
-
-      {!embedBlocked ? (
-        <a
-          href={embedUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`absolute bottom-3 right-3 z-10 ${openLinkClass}`}
-        >
-          {openNewTabLabel}
-        </a>
       ) : null}
     </div>
   );

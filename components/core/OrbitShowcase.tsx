@@ -22,6 +22,9 @@ type Point = { x: number; y: number };
 const ORBIT_CARD_W = 252;
 const ORBIT_CARD_H = 210;
 
+/** Palco central do orbit (projetos e jogos). */
+export const ORBIT_CENTER_MAX_WIDTH_CLASS = 'max-w-[1176px] w-full';
+
 type OrbitShowcaseProps = {
   items: OrbitItem[];
   activeId: string;
@@ -38,7 +41,7 @@ const OrbitShowcase = ({
   onActiveIdChange,
   renderCenter,
   showReset = true,
-  centerMaxWidthClass = 'max-w-[1176px] w-full',
+  centerMaxWidthClass = ORBIT_CENTER_MAX_WIDTH_CLASS,
 }: OrbitShowcaseProps) => {
   const orbitRef = useRef<HTMLDivElement | null>(null);
   const previewWrapRef = useRef<HTMLDivElement | null>(null);

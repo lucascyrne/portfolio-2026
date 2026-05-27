@@ -3,7 +3,10 @@
 import MediaEmbedFrame, {
   EmbedOpenLink,
 } from '@/components/core/MediaEmbedFrame';
-import OrbitShowcase, { type OrbitItem } from '@/components/core/OrbitShowcase';
+import OrbitShowcase, {
+  ORBIT_CENTER_MAX_WIDTH_CLASS,
+  type OrbitItem,
+} from '@/components/core/OrbitShowcase';
 import { gamesBase } from '@/resources/games/games-data';
 import { useI18n } from '@/resources/i18n';
 import { useMemo, useState } from 'react';
@@ -70,7 +73,7 @@ const GamesSection = () => {
           activeId={activeGameId}
           onActiveIdChange={setActiveGameId}
           showReset={orbitItems.length > 1}
-          centerMaxWidthClass="mx-auto w-full max-w-4xl"
+          centerMaxWidthClass={ORBIT_CENTER_MAX_WIDTH_CLASS}
           renderCenter={() =>
             activeGame ? (
               <div className="flex w-full flex-col">

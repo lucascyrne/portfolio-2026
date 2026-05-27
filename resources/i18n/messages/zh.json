@@ -174,13 +174,18 @@
     "demoIframeTitle": "Apogeu — 手势乐器",
     "gamesTitle": "游戏",
     "gamesSubtitle": "Horizonte 打造的互动体验——超越客户项目之外。",
-    "gameIframeTitle": "A Escalada — Horizonte 游戏",
+    "gameIframeSuffix": "Horizonte 游戏",
     "games": {
       "cases": {
         "a-escalada": {
           "title": "A Escalada",
           "genre": "逐层 Roguelike RPG",
           "tagline": "一座毫不留情的塔。每一层都是选择：战斗、逃离或坠落。"
+        },
+        "hockey-club": {
+          "title": "Hockey Club!",
+          "genre": "霓虹 3D 街机空气冰球",
+          "tagline": "浏览器 3D 空气冰球：对战 CPU、本地双人，以及通过房间码 1v1 在线对决。采用 React Three Fiber 与 Rapier 物理，多语言界面，支持 PWA 安装。"
         }
       }
     },

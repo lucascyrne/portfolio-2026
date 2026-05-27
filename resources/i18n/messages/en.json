@@ -174,13 +174,18 @@
     "demoIframeTitle": "Apogeu — gesture instrument",
     "gamesTitle": "Games",
     "gamesSubtitle": "Interactive experiences built by Horizonte — beyond client work.",
-    "gameIframeTitle": "A Escalada — Horizonte game",
+    "gameIframeSuffix": "Horizonte game",
     "games": {
       "cases": {
         "a-escalada": {
           "title": "A Escalada",
           "genre": "Floor-by-floor roguelike RPG",
           "tagline": "A tower that shows no mercy. Each floor is a choice: fight, flee, or fall."
+        },
+        "hockey-club": {
+          "title": "Hockey Club!",
+          "genre": "Neon 3D arcade air hockey",
+          "tagline": "Browser-based 3D air hockey: CPU matches, local two-player, and 1v1 online duels via room codes. Built with React Three Fiber and Rapier, multilingual UI and PWA install."
         }
       }
     },

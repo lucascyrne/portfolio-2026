@@ -174,13 +174,18 @@
     "demoIframeTitle": "Apogeu — instrumento gestual",
     "gamesTitle": "Juegos",
     "gamesSubtitle": "Experiencias interactivas desarrolladas por Horizonte — más allá de los proyectos para clientes.",
-    "gameIframeTitle": "A Escalada — juego Horizonte",
+    "gameIframeSuffix": "juego Horizonte",
     "games": {
       "cases": {
         "a-escalada": {
           "title": "A Escalada",
           "genre": "Roguelike RPG por pisos",
           "tagline": "Una torre sin piedad. Cada piso es una elección: luchar, huir o caer."
+        },
+        "hockey-club": {
+          "title": "Hockey Club!",
+          "genre": "Air hockey 3D arcade neón",
+          "tagline": "Air hockey 3D en el navegador: CPU, local para dos jugadores y duelos online 1v1 con código de sala. React Three Fiber, Rapier, interfaz multilingüe y PWA."
         }
       }
     },

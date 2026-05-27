@@ -11,4 +11,9 @@ export const gamesBase: HorizonteGameBase[] = [
     embedUrl: 'https://a-escalada.vercel.app/',
     year: 2025,
   },
+  {
+    id: 'hockey-club',
+    embedUrl: 'https://hockey-club-bay.vercel.app/',
+    year: 2025,
+  },
 ];

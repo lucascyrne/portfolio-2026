@@ -39,6 +39,11 @@ const GamesSection = () => {
     [activeGameId]
   );
 
+  const activeCopy = useMemo(() => {
+    const key = activeGame?.id as keyof typeof cases;
+    return cases[key] ?? cases['a-escalada' as keyof typeof cases];
+  }, [activeGame?.id, cases]);
+
   return (
     <section
       id="games"
@@ -73,7 +78,7 @@ const GamesSection = () => {
                   <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-border">
                     <MediaEmbedFrame
                       embedUrl={activeGame.embedUrl}
-                      iframeTitle={t('projects.gameIframeTitle')}
+                      iframeTitle={`${activeCopy.title} — ${t('projects.gameIframeSuffix')}`}
                       openNewTabLabel={t('projects.openDemoNewTab')}
                       embedUnavailableTitle={t('projects.embedUnavailableTitle')}
                       embedUnavailableHint={t('projects.embedUnavailableHint')}

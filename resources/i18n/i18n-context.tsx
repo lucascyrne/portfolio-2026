@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import {
   createContext,
   useCallback,
@@ -59,6 +60,7 @@ type I18nContextValue = {
 const I18nContext = createContext<I18nContextValue | undefined>(undefined);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
+  const pathname = usePathname();
   const [locale, setLocaleState] = useState<AppLocale>('pt');
 
   useEffect(() => {
@@ -77,15 +79,25 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     document.documentElement.lang = HTML_LANG[locale];
-    document.title = messages.meta.title;
+    const isHowWeWork = pathname === '/how-we-work';
+
+    document.title = isHowWeWork
+      ? messages.howWeWork.meta.title
+      : messages.meta.title;
+
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
       meta.setAttribute('name', 'description');
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', messages.meta.description);
-  }, [locale, messages]);
+    meta.setAttribute(
+      'content',
+      isHowWeWork
+        ? messages.howWeWork.meta.description
+        : messages.meta.description
+    );
+  }, [locale, messages, pathname]);
 
   const t = useCallback(
     (key: string, vars?: Record<string, string>) => {

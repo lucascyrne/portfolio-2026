@@ -1,11 +1,12 @@
 {
   "meta": {
     "title": "Horizonte Studio | 官方作品集",
-    "description": "Horizonte Studio 数字作品集 — Lucas Cyrne Ferreira：全栈开发、界面与数字产品。"
+    "description": "Horizonte Studio 数字作品集. Lucas Cyrne Ferreira：全栈开发、界面与数字产品。"
   },
   "common": {
     "navHome": "首页",
     "navProjects": "项目",
+    "navHowWeWork": "工作方式",
     "navContact": "联系",
     "language": "语言",
     "logoAria": "前往 Horizonte Studio 首页"
@@ -13,7 +14,7 @@
   "contact": {
     "introEyebrow": "联系",
     "introTitle": "聊聊你的下一个产品",
-    "introBody": "我是中级全栈开发者，注重可靠软件、用心界面与可扩展架构。我参与数字项目——自由职业、精干小队或阶段性交付——沟通直接、持续产出。",
+    "introBody": "我是中级全栈开发者，注重可靠软件、用心界面与可扩展架构。我参与数字项目, , 自由职业、精干小队或阶段性交付, , 沟通直接、持续产出。",
     "introRevealLine": "携手同行，让你的想法超越地平线。",
     "areasHeading": "专注领域",
     "recommendationsEyebrow": "推荐",
@@ -28,7 +29,7 @@
     "ctaReadcvHint": "最新版本",
     "ctaGithub": "GitHub",
     "ctaGithubHint": "代码与项目",
-    "footerBlurb": "Horizonte Studio 作品集 — 技术、叙事与实验，服务数字产品。",
+    "footerBlurb": "Horizonte Studio 作品集. 技术、叙事与实验，服务数字产品。",
     "footerRights": "© Horizonte Studio. 保留所有权利。"
   },
   "contactAreas": [
@@ -49,7 +50,7 @@
     },
     {
       "title": "游戏与互动体验",
-      "desc": "原型、叙事、游戏化，与美术/音频协作的创意交付——从实验到可玩产品。",
+      "desc": "原型、叙事、游戏化，与美术/音频协作的创意交付, , 从实验到可玩产品。",
       "image": "/assets/images/design.webp"
     }
   ],
@@ -171,9 +172,9 @@
     "openDemoNewTab": "在新标签页打开",
     "embedUnavailableTitle": "无法在此页面加载嵌入内容",
     "embedUnavailableHint": "目标站点通过 Content-Security-Policy 限制了 iframe 嵌入。请使用下方按钮在新标签页中打开。",
-    "demoIframeTitle": "Apogeu — 手势乐器",
+    "demoIframeTitle": "Apogeu. 手势乐器",
     "gamesTitle": "游戏",
-    "gamesSubtitle": "Horizonte 打造的互动体验——超越客户项目之外。",
+    "gamesSubtitle": "Horizonte 打造的互动体验, , 超越客户项目之外。",
     "gameIframeSuffix": "Horizonte 游戏",
     "games": {
       "cases": {
@@ -194,7 +195,7 @@
     "openCase": "打开案例研究",
     "modalClose": "关闭",
     "modalAriaClose": "关闭对话框",
-    "modalAriaDialog": "项目详情 — {{title}}",
+    "modalAriaDialog": "项目详情. {{title}}",
     "problem": "问题",
     "solution": "方案",
     "impact": "影响",
@@ -206,7 +207,11 @@
         "problem": "在降低人工错误的同时打通商流与运营。",
         "solution": "预下单规则、运营看板与报表导出能力。",
         "impact": "整体执行更快，管理视角更清晰。",
-        "tags": ["ERP", "销售", "物流"]
+        "tags": [
+          "ERP",
+          "销售",
+          "物流"
+        ]
       },
       "maid-system": {
         "title": "Maid System",
@@ -215,7 +220,11 @@
         "problem": "需协同清洁/布草请求并跟踪多方执行状态。",
         "solution": "为管理者、客户、执行者提供独立流程与状态追踪。",
         "impact": "运营更有序，响应更及时。",
-        "tags": ["运营", "团队", "仪表盘"]
+        "tags": [
+          "运营",
+          "团队",
+          "仪表盘"
+        ]
       },
       "beth-front": {
         "title": "Beth-front",
@@ -224,7 +233,11 @@
         "problem": "在早期版本中仍需传达艺术价值与影响力。",
         "solution": "简洁叙事、明确层级与作品导向导航。",
         "impact": "提升艺术呈现效果与潜在转化能力。",
-        "tags": ["艺术", "画廊", "体验"]
+        "tags": [
+          "艺术",
+          "画廊",
+          "体验"
+        ]
       },
       "cofrin": {
         "title": "Cofrin",
@@ -233,7 +246,11 @@
         "problem": "很多理财应用将关键功能放在付费层。",
         "solution": "支持银行流水自动导入、分类与实用报表。",
         "impact": "无需订阅也能获得高质量财务洞察。",
-        "tags": ["金融科技", "理财", "个人"]
+        "tags": [
+          "金融科技",
+          "理财",
+          "个人"
+        ]
       },
       "apogeu": {
         "title": "Apogeu",
@@ -242,7 +259,12 @@
         "problem": "在没有专用硬件的情况下探索富有表现力的音乐控制，并实时可视化反馈。",
         "solution": "客户端 MediaPipe 视觉、手势到音符映射，以及摄像头、音格与 HUD 界面。",
         "impact": "适合 Vercel 部署的作品集演示：浏览器即玩，支持带摄像头的嵌入。",
-        "tags": ["Web Audio", "计算机视觉", "React", "交互"]
+        "tags": [
+          "Web Audio",
+          "计算机视觉",
+          "React",
+          "交互"
+        ]
       },
       "more": {
         "title": "更多...",
@@ -251,8 +273,155 @@
         "problem": "复杂产品需要从方案到落地的全链路执行。",
         "solution": "具备约 6 年市场经验的中级全栈开发者能力。",
         "impact": "可稳定应对高复杂度产品挑战。",
-        "tags": ["扩展", "亮点"]
+        "tags": [
+          "扩展",
+          "亮点"
+        ]
       }
+    }
+  },
+  "howWeWork": {
+    "meta": {
+      "title": "工作方式 | Horizonte Studio",
+      "description": "专业、透明的流程，将真实问题转化为软件，从探索到产品。"
+    },
+    "hero": {
+      "title": "工作方式",
+      "storyLead": "每个项目都始于一次关于真正需要解决什么的坦诚对话。",
+      "imageAlt": "墙上绘制用户流程的发现工作坊",
+      "flowSteps": [
+        {
+          "label": "问题",
+          "storyBeat": "从真实的痛点开始：排队、返工、无法扩展的表格，或尚未成为运营的想法。",
+          "imageKey": "hero"
+        },
+        {
+          "label": "探索",
+          "storyBeat": "与日常使用系统的人交谈、观察并原型验证。不在封闭房间里编造需求。",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "label": "开发",
+          "storyBeat": "小而可测试的交付、可读代码和持续反馈。产品随业务一起成长。",
+          "imageKey": "development"
+        },
+        {
+          "label": "产品",
+          "storyBeat": "最终重要的是有人真正在使用、并能支撑明天运营的软件。",
+          "imageKey": "philosophy"
+        }
+      ]
+    },
+    "beforeCode": {
+      "eyebrow": "编码之前",
+      "title": "在开发任何软件之前",
+      "chapters": [
+        {
+          "title": "问题",
+          "body": "我们梳理运营痛点或机会。没有这一步，任何方案都是昂贵的猜测。",
+          "imageAlt": "开发前观察真实运营场景",
+          "imageKey": "chapterProblem"
+        },
+        {
+          "title": "探索",
+          "body": "访谈、跟岗观察与快速原型。我们宁愿早验证，也不愿晚重构。",
+          "imageAlt": "带线框图与笔记的发现会议",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "title": "需求",
+          "body": "将听到的内容转化为清晰范围：包含什么、排除什么，以及原因。",
+          "imageAlt": "需求与流程文档",
+          "imageKey": "chapterRequirements"
+        },
+        {
+          "title": "MVP",
+          "body": "定义能证明价值的最小产品。足够小以便上线，足够大以便学习。",
+          "imageAlt": "精简 MVP 规划",
+          "imageKey": "chapterMvp"
+        }
+      ]
+    },
+    "architecture": {
+      "eyebrow": "规划",
+      "title": "架构与规划",
+      "body": "在上下文清晰后，我们以务实方式定义范围、阶段与技术。架构随业务阶段演进。",
+      "steps": [
+        {
+          "label": "MVP",
+          "detail": "精简的首版，用真实用户验证假设，范围明确、成本可控。"
+        },
+        {
+          "label": "验证",
+          "detail": "衡量使用情况、收集反馈，在扩大投资或扩展路线图前进行调整。"
+        },
+        {
+          "label": "版本 1",
+          "detail": "巩固有效部分：成熟流程、稳定集成、基础设施与增长基础。"
+        },
+        {
+          "label": "扩展",
+          "detail": "为下一增长周期准备性能、团队与架构，并映射风险。"
+        }
+      ]
+    },
+    "development": {
+      "eyebrow": "开发",
+      "title": "开发",
+      "body": "我们按案例选择现代工具，优先持续交付、可读代码与真实可用的产品。",
+      "principle": "技术是为解决问题而选，而非反过来。",
+      "categories": {
+        "all": "全部",
+        "frontend": "前端",
+        "backend": "后端",
+        "mobile": "移动端",
+        "cloud": "云",
+        "data": "数据",
+        "tooling": "工具"
+      }
+    },
+    "contracts": {
+      "eyebrow": "合作模式",
+      "title": "合作模式",
+      "body": "每个业务的节奏不同。我们提供灵活形式，使投资与产品阶段相匹配。",
+      "idealForLabel": "适合",
+      "models": [
+        {
+          "title": "固定项目",
+          "idealFor": ["MVP", "落地页", "小型系统"],
+          "imageKey": "contractFixed"
+        },
+        {
+          "title": "持续开发",
+          "idealFor": ["初创公司", "SaaS", "演进中的产品"],
+          "imageKey": "contractContinuous"
+        },
+        {
+          "title": "使用许可",
+          "idealFor": ["专有软件", "特定运营场景"],
+          "imageKey": "contractLicense"
+        },
+        {
+          "title": "完全转让",
+          "idealFor": ["希望完全拥有代码与知识产权的企业"],
+          "imageKey": "contractTransfer"
+        },
+        {
+          "title": "SaaS",
+          "idealFor": ["订阅型产品", "多租户平台"],
+          "imageKey": "contractSaas"
+        }
+      ]
+    },
+    "cta": {
+      "title": "聊聊？",
+      "body": "如果你有重复流程、复杂运营或可能变成软件的想法，我们可以一起探讨并确定最佳路径。",
+      "whatsapp": "WhatsApp 联系",
+      "whatsappHint": "+55 (81) 99861-5659",
+      "email": "发送邮件",
+      "emailHint": "cyrnedev@gmail.com",
+      "portfolio": "查看作品集",
+      "portfolioHint": "项目与演示"
     }
   }
 }

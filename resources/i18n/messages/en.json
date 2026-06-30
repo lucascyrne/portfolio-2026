@@ -1,11 +1,12 @@
 {
   "meta": {
     "title": "Horizonte Studio | Official portfolio",
-    "description": "Horizonte Studio digital portfolio — Lucas Cyrne Ferreira: full-stack development, interfaces, and digital products."
+    "description": "Horizonte Studio digital portfolio. Lucas Cyrne Ferreira: full-stack development, interfaces, and digital products."
   },
   "common": {
     "navHome": "Home",
     "navProjects": "Projects",
+    "navHowWeWork": "How We Work",
     "navContact": "Contact",
     "language": "Language",
     "logoAria": "Go to Horizonte Studio home"
@@ -13,7 +14,7 @@
   "contact": {
     "introEyebrow": "Contact",
     "introTitle": "Let's talk about your next product",
-    "introBody": "I'm a mid-level full-stack developer focused on reliable software, thoughtful interfaces, and architecture that scales. I partner on digital projects — freelance, lean squads, or scoped product phases — with clear communication and steady delivery.",
+    "introBody": "I'm a mid-level full-stack developer focused on reliable software, thoughtful interfaces, and architecture that scales. I partner on digital projects. freelance, lean squads, or scoped product phases. with clear communication and steady delivery.",
     "introRevealLine": "Together, your idea can go far beyond the horizon.",
     "areasHeading": "Focus areas",
     "recommendationsEyebrow": "Recommendations",
@@ -28,7 +29,7 @@
     "ctaReadcvHint": "Updated version",
     "ctaGithub": "GitHub",
     "ctaGithubHint": "Code and projects",
-    "footerBlurb": "Horizonte Studio portfolio — technology, narrative, and experimentation for digital products.",
+    "footerBlurb": "Horizonte Studio portfolio. technology, narrative, and experimentation for digital products.",
     "footerRights": "© Horizonte Studio. All rights reserved."
   },
   "contactAreas": [
@@ -49,7 +50,7 @@
     },
     {
       "title": "Games and interactive experiences",
-      "desc": "Prototypes, narrative, gamification, and creative builds alongside art and audio — from experiments to playable products.",
+      "desc": "Prototypes, narrative, gamification, and creative builds alongside art and audio. from experiments to playable products.",
       "image": "/assets/images/design.webp"
     }
   ],
@@ -171,9 +172,9 @@
     "openDemoNewTab": "Open in new tab",
     "embedUnavailableTitle": "Could not load the embed on this page",
     "embedUnavailableHint": "The destination site blocks iframes outside allowed domains (Content-Security-Policy). Use the button below to open in a new tab.",
-    "demoIframeTitle": "Apogeu — gesture instrument",
+    "demoIframeTitle": "Apogeu. gesture instrument",
     "gamesTitle": "Games",
-    "gamesSubtitle": "Interactive experiences built by Horizonte — beyond client work.",
+    "gamesSubtitle": "Interactive experiences built by Horizonte. beyond client work.",
     "gameIframeSuffix": "Horizonte game",
     "games": {
       "cases": {
@@ -194,7 +195,7 @@
     "openCase": "Open case study",
     "modalClose": "Close",
     "modalAriaClose": "Close dialog",
-    "modalAriaDialog": "Project details — {{title}}",
+    "modalAriaDialog": "Project details. {{title}}",
     "problem": "Problem",
     "solution": "Solution",
     "impact": "Impact",
@@ -253,6 +254,150 @@
         "impact": "Ready for demanding product challenges with speed and quality.",
         "tags": ["Extra", "Highlights"]
       }
+    }
+  },
+  "howWeWork": {
+    "meta": {
+      "title": "How We Work | Horizonte Studio",
+      "description": "A professional, transparent process for turning real problems into software, from discovery to product."
+    },
+    "hero": {
+      "title": "How We Work",
+      "storyLead": "Every project starts with an honest conversation about what actually needs to be solved.",
+      "imageAlt": "Discovery workshop with user flows on the wall",
+      "flowSteps": [
+        {
+          "label": "Problem",
+          "storyBeat": "We start with the real pain: queues, rework, spreadsheets that do not scale, or an idea that has not become an operation yet.",
+          "imageKey": "hero"
+        },
+        {
+          "label": "Discovery",
+          "storyBeat": "We talk, observe, and prototype with the people who use the system daily. No requirements invented in a closed room.",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "label": "Development",
+          "storyBeat": "Small testable releases, readable code, and steady feedback. The product grows with the business, not against it.",
+          "imageKey": "development"
+        },
+        {
+          "label": "Product",
+          "storyBeat": "In the end, what matters is software someone actually uses and that supports the operation tomorrow.",
+          "imageKey": "philosophy"
+        }
+      ]
+    },
+    "beforeCode": {
+      "eyebrow": "Before code",
+      "title": "Before building any software",
+      "chapters": [
+        {
+          "title": "Problem",
+          "body": "We map the operational pain or opportunity. Without that, any solution is an expensive guess.",
+          "imageAlt": "Observing a real operation before development",
+          "imageKey": "chapterProblem"
+        },
+        {
+          "title": "Discovery",
+          "body": "Interviews, shadowing, and quick prototypes. We prefer to validate early over rebuilding late.",
+          "imageAlt": "Discovery session with wireframes and notes",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "title": "Requirements",
+          "body": "We translate what we heard into clear scope: what is in, what is out, and why.",
+          "imageAlt": "Requirements and flow documentation",
+          "imageKey": "chapterRequirements"
+        },
+        {
+          "title": "MVP",
+          "body": "We define the smallest product that proves value. Small enough to ship, big enough to learn.",
+          "imageAlt": "Lean MVP planning",
+          "imageKey": "chapterMvp"
+        }
+      ]
+    },
+    "architecture": {
+      "eyebrow": "Planning",
+      "title": "Architecture and planning",
+      "body": "With context mapped, we define scope, phases, and technology pragmatically. Architecture follows the stage of the business.",
+      "steps": [
+        {
+          "label": "MVP",
+          "detail": "A lean first version to validate the hypothesis with real users, fixed scope, and controlled cost."
+        },
+        {
+          "label": "Validation",
+          "detail": "We measure usage, listen to feedback, and adjust before scaling investment or expanding the roadmap."
+        },
+        {
+          "label": "Version 1",
+          "detail": "We consolidate what worked: mature flows, stable integrations, infrastructure, and a base to grow."
+        },
+        {
+          "label": "Scale",
+          "detail": "We prepare performance, team, and architecture for the next growth cycle with risks mapped."
+        }
+      ]
+    },
+    "development": {
+      "eyebrow": "Development",
+      "title": "Development",
+      "body": "We choose modern tools case by case. We prioritize continuous delivery, readable code, and products that work in the real world.",
+      "principle": "Technology is chosen to solve the problem, not the other way around.",
+      "categories": {
+        "all": "All",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "mobile": "Mobile",
+        "cloud": "Cloud",
+        "data": "Data",
+        "tooling": "Tooling"
+      }
+    },
+    "contracts": {
+      "eyebrow": "Engagement",
+      "title": "Engagement models",
+      "body": "Every business moves at a different pace. We offer flexible formats so the investment matches the stage of the product.",
+      "idealForLabel": "Ideal for",
+      "models": [
+        {
+          "title": "Fixed project",
+          "idealFor": ["MVP", "Landing pages", "Small systems"],
+          "imageKey": "contractFixed"
+        },
+        {
+          "title": "Continuous development",
+          "idealFor": ["Startups", "SaaS", "Evolving products"],
+          "imageKey": "contractContinuous"
+        },
+        {
+          "title": "Usage license",
+          "idealFor": ["Proprietary software", "Specific operations"],
+          "imageKey": "contractLicense"
+        },
+        {
+          "title": "Full transfer",
+          "idealFor": ["Companies that want full ownership of code and intellectual property"],
+          "imageKey": "contractTransfer"
+        },
+        {
+          "title": "SaaS",
+          "idealFor": ["Recurring products", "Multi-tenant platforms"],
+          "imageKey": "contractSaas"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Let's talk?",
+      "body": "If you have a repetitive process, a complex operation, or an idea that could become software, we can talk and define the best path together.",
+      "whatsapp": "Chat on WhatsApp",
+      "whatsappHint": "+55 (81) 99861-5659",
+      "email": "Send email",
+      "emailHint": "cyrnedev@gmail.com",
+      "portfolio": "View portfolio",
+      "portfolioHint": "Projects and demos"
     }
   }
 }

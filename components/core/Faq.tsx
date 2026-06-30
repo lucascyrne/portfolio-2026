@@ -9,16 +9,17 @@ type FAQProps = {
   heading: string;
   items: FaqItem[];
   id?: string;
+  className?: string;
 };
 
-const FAQ = ({ heading, items, id }: FAQProps) => {
+const FAQ = ({ heading, items, id, className = '' }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const headingId = id ? `${id}-heading` : 'faq-heading';
 
   return (
     <section
       id={id}
-      className="w-full bg-surface-muted/50 px-4 py-12 md:py-16"
+      className={`relative z-10 w-full bg-transparent px-4 py-12 md:py-16 ${className}`}
       aria-labelledby={headingId}
     >
       <h2

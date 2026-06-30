@@ -1,10 +1,16 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { IoDocumentTextOutline } from 'react-icons/io5';
+import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { IoBriefcaseOutline, IoDocumentTextOutline } from 'react-icons/io5';
 
-export type ContactCTAVariant = 'email' | 'linkedin' | 'readcv' | 'github';
+export type ContactCTAVariant =
+  | 'email'
+  | 'linkedin'
+  | 'readcv'
+  | 'github'
+  | 'whatsapp'
+  | 'portfolio';
 
 type ContactCTAProps = {
   variant: ContactCTAVariant;
@@ -19,6 +25,8 @@ const iconByVariant: Record<ContactCTAVariant, ReactNode> = {
   linkedin: <FaLinkedin className="size-5 shrink-0" aria-hidden />,
   readcv: <IoDocumentTextOutline className="size-5 shrink-0" aria-hidden />,
   github: <FaGithub className="size-5 shrink-0" aria-hidden />,
+  whatsapp: <FaWhatsapp className="size-5 shrink-0" aria-hidden />,
+  portfolio: <IoBriefcaseOutline className="size-5 shrink-0" aria-hidden />,
 };
 
 const ContactCTA: FC<ContactCTAProps> = ({

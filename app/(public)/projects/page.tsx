@@ -1,35 +1,17 @@
 'use client';
 
-import Gowdock from '@/public/assets/icons/gowdock-logo.svg';
-import NovoAtacarejo from '@/public/assets/icons/novo-atacarejo-logo.svg';
-import LucidDreams from '@/public/assets/icons/lucid-dreams-logo.svg';
-import GeniusLine from '@/public/assets/icons/geniusline-icon.svg';
-import Lovepay from '@/public/assets/icons/lovepay-icon.svg';
-import SGA from '@/public/assets/icons/sga-icon.png';
-import Rainbet from '@/public/assets/icons/rainbet-icon.png';
-import Aoro from '@/public/assets/icons/aoro-icon.png';
 import useCustomCursor from '@/resources/hooks/useCustomCursor';
 import useRevealText from '@/resources/hooks/useRevealText';
-import { useI18n } from '@/resources/i18n';
+import { AppLocale, useI18n } from '@/resources/i18n';
 import ProjectStickyPreview from '@/components/core/ProjectStickyPreview';
 import OrbitShowcase, { type OrbitItem } from '@/components/core/OrbitShowcase';
 import GamesSection from '@/components/core/GamesSection';
 import HorizonSectionTransition from '@/components/core/HorizonSectionTransition';
-import PartnersCarousel from '@/components/core/PartnersCarousel';
 import { useMemo, useState } from 'react';
+import FooterContact from '@/components/core/FooterContact';
 
 const Work = () => {
-  const { projects, t } = useI18n();
-  const partners = [
-    Gowdock,
-    NovoAtacarejo,
-    LucidDreams,
-    GeniusLine,
-    Lovepay,
-    SGA,
-    Rainbet,
-    Aoro,
-  ];
+  const { projects, t, locale } = useI18n();
   const cursorRef = useCustomCursor();
   useRevealText();
 
@@ -87,21 +69,11 @@ const Work = () => {
 
       <GamesSection />
 
-      <section className="px-6 pb-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between gap-6 mb-6">
-            <div>
-              <h2 className="font-inria text-3xl font-bold">
-                {t('projects.customersTitle')}
-              </h2>
-              <p className="mt-2 text-muted">
-                {t('projects.customersSubtitle')}
-              </p>
-            </div>
-          </div>
-          <PartnersCarousel logos={partners} />
-        </div>
-      </section>
+      <FooterContact
+        blurb={t('contact.footerBlurb')}
+        rights={t('contact.footerRights')}
+        locale={locale as AppLocale}
+      />
     </main>
   );
 };

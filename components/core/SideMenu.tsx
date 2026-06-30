@@ -33,6 +33,13 @@ const SideMenu: React.FC<SideMenuProps> = ({
     { code: 'zh', label: '中文' },
   ];
 
+  const navItems = [
+    { num: '01', path: '/', labelKey: 'common.navHome' },
+    { num: '02', path: '/projects', labelKey: 'common.navProjects' },
+    { num: '03', path: '/how-we-work', labelKey: 'common.navHowWeWork' },
+    { num: '04', path: '/contact', labelKey: 'common.navContact' },
+  ] as const;
+
   useEffect(() => {
     const menu = menuRef.current;
 
@@ -97,7 +104,7 @@ const SideMenu: React.FC<SideMenuProps> = ({
       )}
       <div
         ref={menuRef}
-        className="fixed z-50 top-0 right-0 py-2 px-2 w-64 h-full bg-surface text-foreground shadow-lg transform translate-x-full"
+        className="fixed z-50 top-0 right-0 py-2 px-2 w-72 min-w-[17rem] h-full bg-surface text-foreground shadow-lg transform translate-x-full"
         onMouseEnter={onPanelEnter}
         onMouseLeave={onPanelLeave}
         onClick={(event) => event.stopPropagation()}
@@ -145,43 +152,23 @@ const SideMenu: React.FC<SideMenuProps> = ({
             ))}
           </div>
         </div>
-        <nav className="flex flex-col items-start justify-star mt-10">
-          <button
-            className="flex items-start relative px-4 py-2 w-full text-xl font-normal text-foreground overflow-hidden hover:bg-surface-muted transition-all duration-300"
-            onClick={() => handleNavigate('/')}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span className="relative top-1 mr-[2px] align-top text-xsm">01</span>
-            <span className="font-inria text relative">
-              {t('common.navHome')}
-            </span>
-            <span className="underline absolute left-0 bottom-0 h-[1px] w-full bg-accent transform scale-x-0 origin-left"></span>
-          </button>
-          <button
-            className="flex items-start relative px-4 py-2 w-full text-xl font-normal text-foreground overflow-hidden hover:bg-surface-muted transition-all duration-300"
-            onClick={() => handleNavigate('/projects')}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span className="relative top-1 mr-[2px] align-top text-xsm">02</span>
-            <span className="font-inria text relative">
-              {t('common.navProjects')}
-            </span>
-            <span className="underline absolute left-0 bottom-0 h-[1px] w-full bg-accent transform scale-x-0 origin-left"></span>
-          </button>
-          <button
-            className="flex items-start relative px-4 py-2 w-full text-xl font-normal text-foreground overflow-hidden hover:bg-surface-muted transition-all duration-300"
-            onClick={() => handleNavigate('/contact')}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span className="relative top-1 mr-[2px] align-top text-xsm">03</span>
-            <span className="font-inria text relative">
-              {t('common.navContact')}
-            </span>
-            <span className="underline absolute left-0 bottom-0 h-[1px] w-full bg-accent transform scale-x-0 origin-left"></span>
-          </button>
+        <nav className="mt-10 flex flex-col items-stretch">
+          {navItems.map(({ num, path, labelKey }) => (
+            <button
+              key={path}
+              type="button"
+              className="relative flex w-full items-start gap-2 overflow-hidden px-4 py-2 text-left text-foreground transition-all duration-300 hover:bg-surface-muted"
+              onClick={() => handleNavigate(path)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="w-6 shrink-0 pt-1 text-xsm leading-none">{num}</span>
+              <span className="font-inria text relative flex-1 text-left text-xl leading-snug">
+                {t(labelKey)}
+              </span>
+              <span className="underline absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-accent" />
+            </button>
+          ))}
         </nav>
       </div>
     </>

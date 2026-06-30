@@ -1,11 +1,12 @@
 {
   "meta": {
     "title": "Horizonte Studio | Portafolio oficial",
-    "description": "Portafolio digital de Horizonte Studio — Lucas Cyrne Ferreira: desarrollo full stack, interfaces y productos digitales."
+    "description": "Portafolio digital de Horizonte Studio. Lucas Cyrne Ferreira: desarrollo full stack, interfaces y productos digitales."
   },
   "common": {
     "navHome": "Inicio",
     "navProjects": "Proyectos",
+    "navHowWeWork": "Cómo Trabajamos",
     "navContact": "Contacto",
     "language": "Idioma",
     "logoAria": "Ir al inicio de Horizonte Studio"
@@ -13,7 +14,7 @@
   "contact": {
     "introEyebrow": "Contacto",
     "introTitle": "Hablemos de tu próximo producto",
-    "introBody": "Trabajo como desarrollador full stack mid-level enfocado en software fiable, interfaces cuidadas y arquitectura escalable. Busco colaborar en proyectos digitales — freelance, squads ágiles o fases acotadas — con comunicación clara y entregas continuas.",
+    "introBody": "Trabajo como desarrollador full stack mid-level enfocado en software fiable, interfaces cuidadas y arquitectura escalable. Busco colaborar en proyectos digitales. freelance, squads ágiles o fases acotadas. con comunicación clara y entregas continuas.",
     "introRevealLine": "Juntos, tu idea puede llegar mucho más allá del horizonte.",
     "areasHeading": "Áreas de enfoque",
     "recommendationsEyebrow": "Recomendaciones",
@@ -28,7 +29,7 @@
     "ctaReadcvHint": "Versión actualizada",
     "ctaGithub": "GitHub",
     "ctaGithubHint": "Código y proyectos",
-    "footerBlurb": "Portafolio Horizonte Studio — tecnología, narrativa y experimentación para productos digitales.",
+    "footerBlurb": "Portafolio Horizonte Studio. tecnología, narrativa y experimentación para productos digitales.",
     "footerRights": "© Horizonte Studio. Todos los derechos reservados."
   },
   "contactAreas": [
@@ -49,7 +50,7 @@
     },
     {
       "title": "Juegos e interactivo",
-      "desc": "Prototipos, narrativa, gamificación y piezas creativas con arte y audio — del experimento al producto jugable.",
+      "desc": "Prototipos, narrativa, gamificación y piezas creativas con arte y audio. del experimento al producto jugable.",
       "image": "/assets/images/design.webp"
     }
   ],
@@ -171,9 +172,9 @@
     "openDemoNewTab": "Abrir en nueva pestaña",
     "embedUnavailableTitle": "No se pudo cargar el embed en esta página",
     "embedUnavailableHint": "El sitio de destino bloquea iframes fuera de los dominios permitidos (Content-Security-Policy). Usa el botón para abrir en una nueva pestaña.",
-    "demoIframeTitle": "Apogeu — instrumento gestual",
+    "demoIframeTitle": "Apogeu. instrumento gestual",
     "gamesTitle": "Juegos",
-    "gamesSubtitle": "Experiencias interactivas desarrolladas por Horizonte — más allá de los proyectos para clientes.",
+    "gamesSubtitle": "Experiencias interactivas desarrolladas por Horizonte. más allá de los proyectos para clientes.",
     "gameIframeSuffix": "juego Horizonte",
     "games": {
       "cases": {
@@ -206,7 +207,11 @@
         "problem": "Unificar rutinas comerciales y logísticas reduciendo errores manuales.",
         "solution": "Reglas de pre-pedido, paneles operativos y exportación de informes.",
         "impact": "Más control y ejecución más rápida en toda la operación.",
-        "tags": ["ERP", "Comercial", "Logística"]
+        "tags": [
+          "ERP",
+          "Comercial",
+          "Logística"
+        ]
       },
       "maid-system": {
         "title": "Maid System",
@@ -215,7 +220,11 @@
         "problem": "Coordinar solicitudes de limpieza/lavandería entre múltiples actores.",
         "solution": "Flujos distintos para gestor, cliente y trabajador(a), con estado por unidad.",
         "impact": "Operación más organizada y respuestas más ágiles.",
-        "tags": ["Operaciones", "Equipos", "Dashboards"]
+        "tags": [
+          "Operaciones",
+          "Equipos",
+          "Dashboards"
+        ]
       },
       "beth-front": {
         "title": "Beth-front",
@@ -224,7 +233,11 @@
         "problem": "Transmitir impacto y valor artístico desde una versión temprana.",
         "solution": "Narrativa limpia, jerarquía visual fuerte y navegación orientada a obra.",
         "impact": "Mayor potencial de impacto y venta del trabajo artístico.",
-        "tags": ["Arte", "Galería", "Experiencia"]
+        "tags": [
+          "Arte",
+          "Galería",
+          "Experiencia"
+        ]
       },
       "cofrin": {
         "title": "Cofrin",
@@ -233,7 +246,11 @@
         "problem": "Muchas apps bloquean funciones clave detrás de pago.",
         "solution": "Autoimport de extracto bancario, categorización e informes útiles.",
         "impact": "Mejor gestión financiera sin costo de suscripción.",
-        "tags": ["Fintech", "Finanzas", "Personal"]
+        "tags": [
+          "Fintech",
+          "Finanzas",
+          "Personal"
+        ]
       },
       "apogeu": {
         "title": "Apogeu",
@@ -242,7 +259,12 @@
         "problem": "Explorar control musical expresivo sin hardware dedicado, con feedback visual en tiempo real.",
         "solution": "Visión con MediaPipe en el cliente, mapeo gesto→nota y UI con cámara, rejilla sonora y HUD.",
         "impact": "Demo lista para Vercel: experimentación inmediata en el navegador, ideal para embed con cámara.",
-        "tags": ["Web Audio", "Computer Vision", "React", "Interactivo"]
+        "tags": [
+          "Web Audio",
+          "Computer Vision",
+          "React",
+          "Interactivo"
+        ]
       },
       "more": {
         "title": "Más...",
@@ -251,8 +273,155 @@
         "problem": "Los desafíos complejos exigen ejecución sólida de punta a punta.",
         "solution": "Perfil full stack mid-level con cerca de 6 años de mercado.",
         "impact": "Preparado para retos de producto con ritmo, calidad y visión.",
-        "tags": ["Extra", "Destacados"]
+        "tags": [
+          "Extra",
+          "Destacados"
+        ]
       }
+    }
+  },
+  "howWeWork": {
+    "meta": {
+      "title": "Cómo Trabajamos | Horizonte Studio",
+      "description": "Un proceso profesional y transparente para transformar problemas reales en software, del descubrimiento al producto."
+    },
+    "hero": {
+      "title": "Cómo Trabajamos",
+      "storyLead": "Cada proyecto empieza con una conversación honesta sobre lo que realmente hay que resolver.",
+      "imageAlt": "Taller de descubrimiento con flujos en la pared",
+      "flowSteps": [
+        {
+          "label": "Problema",
+          "storyBeat": "Empezamos por el dolor real: filas, retrabajo, hojas de cálculo que no escalan o una idea que aún no es operación.",
+          "imageKey": "hero"
+        },
+        {
+          "label": "Descubrimiento",
+          "storyBeat": "Hablamos, observamos y prototipamos con quien usa el sistema a diario. Sin requisitos inventados en una sala cerrada.",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "label": "Desarrollo",
+          "storyBeat": "Entregas pequeñas y testeables, código legible y feedback constante. El producto crece con el negocio.",
+          "imageKey": "development"
+        },
+        {
+          "label": "Producto",
+          "storyBeat": "Al final importa software que alguien usa de verdad y sostiene la operación mañana.",
+          "imageKey": "philosophy"
+        }
+      ]
+    },
+    "beforeCode": {
+      "eyebrow": "Antes del código",
+      "title": "Antes de desarrollar cualquier software",
+      "chapters": [
+        {
+          "title": "Problema",
+          "body": "Mapeamos el dolor operacional o la oportunidad. Sin eso, cualquier solución es una apuesta cara.",
+          "imageAlt": "Observación de operación real antes del desarrollo",
+          "imageKey": "chapterProblem"
+        },
+        {
+          "title": "Descubrimiento",
+          "body": "Entrevistas, shadowing y prototipos rápidos. Preferimos validar pronto a reconstruir tarde.",
+          "imageAlt": "Sesión de descubrimiento con wireframes y notas",
+          "imageKey": "chapterDiscovery"
+        },
+        {
+          "title": "Requisitos",
+          "body": "Traducimos lo que escuchamos en un alcance claro: qué entra, qué queda fuera y por qué.",
+          "imageAlt": "Documentación de requisitos y flujos",
+          "imageKey": "chapterRequirements"
+        },
+        {
+          "title": "MVP",
+          "body": "Definimos el producto mínimo que demuestra valor. Lo bastante pequeño para lanzar, lo bastante grande para aprender.",
+          "imageAlt": "Planificación de MVP enxuto",
+          "imageKey": "chapterMvp"
+        }
+      ]
+    },
+    "architecture": {
+      "eyebrow": "Planificación",
+      "title": "Arquitectura y planificación",
+      "body": "Con el contexto mapeado, definimos alcance, fases y tecnologías de forma pragmática. La arquitectura acompaña la etapa del negocio.",
+      "steps": [
+        {
+          "label": "MVP",
+          "detail": "Primera versión enxuta para validar la hipótesis con usuarios reales, alcance cerrado y costo controlado."
+        },
+        {
+          "label": "Validación",
+          "detail": "Medimos uso, escuchamos feedback y ajustamos antes de escalar inversión o ampliar el roadmap."
+        },
+        {
+          "label": "Versión 1",
+          "detail": "Consolidamos lo que funcionó: flujos maduros, integraciones estables, infraestructura y base para crecer."
+        },
+        {
+          "label": "Escala",
+          "detail": "Preparamos rendimiento, equipo y arquitectura para el próximo ciclo de crecimiento con riesgos mapeados."
+        }
+      ]
+    },
+    "development": {
+      "eyebrow": "Desarrollo",
+      "title": "Desarrollo",
+      "body": "Elegimos herramientas modernas caso a caso. Priorizamos entrega continua, código legible y producto que funciona en el mundo real.",
+      "principle": "La tecnología se elige para resolver el problema, no al revés.",
+      "categories": {
+        "all": "Todo",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "mobile": "Mobile",
+        "cloud": "Cloud",
+        "data": "Datos",
+        "tooling": "Herramientas"
+      }
+    },
+    "contracts": {
+      "eyebrow": "Contratación",
+      "title": "Modelos de contratación",
+      "body": "Cada negocio tiene un ritmo distinto. Ofrecemos formatos flexibles para que la inversión tenga sentido en la etapa del producto.",
+      "idealForLabel": "Ideal para",
+      "models": [
+        {
+          "title": "Proyecto cerrado",
+          "idealFor": ["MVP", "Landing pages", "Sistemas pequeños"],
+          "imageKey": "contractFixed"
+        },
+        {
+          "title": "Desarrollo continuo",
+          "idealFor": ["Startups", "SaaS", "Productos en evolución"],
+          "imageKey": "contractContinuous"
+        },
+        {
+          "title": "Licencia de uso",
+          "idealFor": ["Software propietario", "Operaciones específicas"],
+          "imageKey": "contractLicense"
+        },
+        {
+          "title": "Cesión total",
+          "idealFor": ["Empresas que desean poseer integralmente el código y la propiedad intelectual"],
+          "imageKey": "contractTransfer"
+        },
+        {
+          "title": "SaaS",
+          "idealFor": ["Productos recurrentes", "Plataformas multiempresa"],
+          "imageKey": "contractSaas"
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Hablamos?",
+      "body": "Si tienes un proceso repetitivo, una operación compleja o una idea que puede convertirse en software, conversamos y definimos juntos el mejor camino.",
+      "whatsapp": "Hablar por WhatsApp",
+      "whatsappHint": "+55 (81) 99861-5659",
+      "email": "Enviar correo",
+      "emailHint": "cyrnedev@gmail.com",
+      "portfolio": "Ver portafolio",
+      "portfolioHint": "Proyectos y demos"
     }
   }
 }

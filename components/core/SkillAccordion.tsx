@@ -11,9 +11,10 @@ type SkillAccordionProps = {
   items: ContactAreaItem[];
   heading?: string;
   id?: string;
+  className?: string;
 };
 
-const SkillAccordion = ({ items, heading, id }: SkillAccordionProps) => {
+const SkillAccordion = ({ items, heading, id, className = '' }: SkillAccordionProps) => {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
   const [visibleIndex, setVisibleIndex] = useState<null | number>(null);
   const showTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -45,7 +46,7 @@ const SkillAccordion = ({ items, heading, id }: SkillAccordionProps) => {
   return (
     <section
       id={id}
-      className="w-full bg-surface-muted/80 px-4 py-12 md:py-16"
+      className={`relative z-10 w-full bg-transparent px-4 py-12 md:py-16 ${className}`}
       aria-labelledby={heading ? headingId : undefined}
     >
       {heading ? (

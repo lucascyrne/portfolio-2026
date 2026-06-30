@@ -181,6 +181,10 @@ body {
   z-index: 1;
 }
 
+.reveal-area--scroll {
+  overflow: visible;
+}
+
 .reveal-hidden {
   position: absolute;
   top: 0;
@@ -406,4 +410,51 @@ body {
     opacity: var(--starOpacity);
     transform: translate(-50%, -50%);
   }
+
+  .contact-lower-atmosphere__glow {
+    animation: none !important;
+    opacity: 0.35;
+    filter: none;
+  }
+
+  .work-atmosphere__glow {
+    animation: none !important;
+    opacity: 0.35;
+    filter: none;
+  }
+}
+
+/* Atmosfera contínua — seções inferiores de Contato */
+.contact-lower-atmosphere__glow,
+.work-atmosphere__glow {
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: radial-gradient(
+      ellipse 80% 50% at 50% 30%,
+      color-mix(in srgb, var(--color-primary) 18%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 80% 75%,
+      color-mix(in srgb, var(--color-secondary) 12%, transparent),
+      transparent 65%
+    );
+  animation: horizonGlowBreathe 24s ease-in-out infinite alternate;
+}
+
+.contact-lower-atmosphere__content {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
 }

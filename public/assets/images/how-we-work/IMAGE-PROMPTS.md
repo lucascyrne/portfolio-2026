@@ -12,21 +12,21 @@ Referência de prompts, uso na página e alinhamento com o storytelling.
 
 ## Mapa página → imagem
 
-| Seção                        | Componente               | Chave i18n / código              | Arquivo                         |
-| ---------------------------- | ------------------------ | -------------------------------- | ------------------------------- |
-| Hero (passo Problema)        | `WorkHeroParallax`       | `hero.flowSteps[0].imageKey`     | `hero-discovery.webp`           |
-| Hero (Descoberta)            | `WorkHeroParallax`       | `chapterDiscovery`               | `chapter-discovery.webp`        |
-| Hero (Desenvolvimento)       | `WorkHeroParallax`       | `development`                    | `development-desk.webp`         |
-| Hero (Produto)               | `WorkHeroParallax`       | `philosophy`                     | `philosophy-retrospective.webp` |
-| Antes do código — Problema   | `WorkScrollStage`        | `chapterProblem`                 | `chapter-problem.webp`          |
-| Antes do código — Descoberta | `WorkScrollStage`        | `chapterDiscovery`               | `chapter-discovery.webp`        |
-| Antes do código — Requisitos | `WorkScrollStage`        | `chapterRequirements`            | `chapter-requirements.webp`     |
-| Antes do código — MVP        | `WorkScrollStage`        | `chapterMvp`                     | `chapter-mvp.webp`              |
-| Arquitetura — MVP            | `WorkScrollStage`        | mapa estático                    | `chapter-mvp.webp`              |
-| Arquitetura — Validação      | `WorkScrollStage`        | mapa estático                    | `chapter-discovery.webp`        |
-| Arquitetura — Versão 1       | `WorkScrollStage`        | mapa estático                    | `chapter-requirements.webp`     |
-| Arquitetura — Escala         | `WorkScrollStage`        | mapa estático                    | `architecture-roadmap.webp`     |
-| Contratação ×5               | `WorkScrollStage`        | `contractFixed` … `contractSaas` | `contract-*.webp`               |
+| Seção                        | Componente         | Chave i18n / código              | Arquivo                         |
+| ---------------------------- | ------------------ | -------------------------------- | ------------------------------- |
+| Hero (passo Problema)        | `WorkHeroParallax` | `hero.flowSteps[0].imageKey`     | `hero-discovery.webp`           |
+| Hero (Descoberta)            | `WorkHeroParallax` | `chapterDiscovery`               | `chapter-discovery.webp`        |
+| Hero (Desenvolvimento)       | `WorkHeroParallax` | `development`                    | `development-desk.webp`         |
+| Hero (Produto)               | `WorkHeroParallax` | `philosophy`                     | `philosophy-retrospective.webp` |
+| Antes do código — Problema   | `WorkScrollStage`  | `chapterProblem`                 | `chapter-problem.webp`          |
+| Antes do código — Descoberta | `WorkScrollStage`  | `chapterDiscovery`               | `chapter-discovery.webp`        |
+| Antes do código — Requisitos | `WorkScrollStage`  | `chapterRequirements`            | `chapter-requirements.webp`     |
+| Antes do código — MVP        | `WorkScrollStage`  | `chapterMvp`                     | `chapter-mvp.webp`              |
+| Arquitetura — MVP            | `WorkScrollStage`  | mapa estático                    | `chapter-mvp.webp`              |
+| Arquitetura — Validação      | `WorkScrollStage`  | mapa estático                    | `chapter-discovery.webp`        |
+| Arquitetura — Versão 1       | `WorkScrollStage`  | mapa estático                    | `chapter-requirements.webp`     |
+| Arquitetura — Escala         | `WorkScrollStage`  | mapa estático                    | `architecture-roadmap.webp`     |
+| Contratação ×5               | `WorkScrollStage`  | `contractFixed` … `contractSaas` | `contract-*.webp`               |
 
 ### Reserva / alias (não renderizados hoje)
 
@@ -157,8 +157,6 @@ Editorial photo, wall calendar or circular sprint cycle diagram with subtle cora
 Editorial photo, elegant key on minimal stand next to software license booklet (blurred), warm side light, coral accent on key tag, access and permission metaphor, no readable text, 16:9
 ```
 
-(PAROU AQUI) -----------------------------------------------------
-
 ### `contract-transfer.webp`
 
 **Seção:** Contratação — Cessão total  
@@ -185,6 +183,8 @@ Minimal editorial illustration, soft cloud shapes with multiple tenant blocks co
 ```
 Editorial photo, whiteboard after team retrospective with erased marks and empty chairs, late afternoon golden light through window, quiet reflection mood, coral pink eraser or marker on ledge, no readable board text, 16:9
 ```
+
+(PAROU AQUI) -----------------------------------------------------
 
 ### `before-code.webp` _(reserva)_
 
